@@ -66,6 +66,10 @@
 
     <!-- فوتر سراسری برای کل پروژه -->
     <AppFooter />
+
+    <!-- سیستم اعلان‌ها و مودال تأیید مدرن -->
+    <ToastContainer />
+    <ConfirmModal />
   </div>
 </template>
 
@@ -73,14 +77,17 @@
 import api from './api.js'
 import { auth, loadAuth, clearAuth } from './auth.js'
 import AppFooter from './components/Footer.vue'
+import ToastContainer from './components/ToastContainer.vue'
+import ConfirmModal from './components/ConfirmModal.vue'
 
 export default {
   components: {
-    AppFooter
+    AppFooter,
+    ToastContainer,
+    ConfirmModal
   },
   data() {
     return {
-      loggedIn: false,
       auth,
     }
   },
@@ -89,22 +96,31 @@ export default {
       return this.$route.path === '/'
     },
     showManagementNav() {
-      return this.loggedIn && !this.isLandingPage
+      return !!this.auth.id && !this.isLandingPage
+    }
+  },
+  watch: {
+    async $route() {
+      if (!this.auth.id) {
+        try {
+          await loadAuth()
+        } catch {
+          // not logged in
+        }
+      }
     }
   },
   async created() {
     try {
       await loadAuth()
-      this.loggedIn = true
     } catch {
-      this.loggedIn = false
+      // not logged in
     }
   },
   methods: {
     async doLogout() {
       await api.logout()
       clearAuth()
-      this.loggedIn = false
       this.$router.push('/login')
     },
   },

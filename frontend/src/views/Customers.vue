@@ -111,6 +111,8 @@
 <script>
 import api from '../api.js'
 import { auth } from '../auth.js'
+import toast from '../services/toast.js'
+import showConfirm from '../services/confirm.js'
 
 export default {
   name: 'Customers',
@@ -152,7 +154,7 @@ export default {
         this.totalPages = res.total_pages || 1
       } catch (e) {
         console.error(e)
-        alert('خطا در بارگذاری مشتریان: ' + (e.message || 'لطفاً دوباره تلاش کنید'))
+        toast.error('خطا در بارگذاری مشتریان: ' + (e.message || 'لطفاً دوباره تلاش کنید'))
       } finally {
         this.loading = false
       }
@@ -165,14 +167,18 @@ export default {
     },
 
     async doDelete(customer) {
-      if (!confirm(`آیا از حذف مشتری "${customer.name}" مطمئن هستید؟`)) return
+      const ok = await showConfirm(`آیا از حذف مشتری "${customer.name}" اطمینان دارید؟`, {
+        title: 'حذف حساب مشتری',
+        confirmText: 'بله، حذف شود'
+      })
+      if (!ok) return
       
       try {
         await api.deleteCustomer(customer.id)
-        alert('مشتری با موفقیت حذف شد')
+        toast.success(`مشتری "${customer.name}" با موفقیت حذف شد`)
         this.load()
       } catch (e) {
-        alert('خطا در حذف مشتری: ' + (e.message || ''))
+        toast.error('خطا در حذف مشتری: ' + (e.message || ''))
       }
     }
   }

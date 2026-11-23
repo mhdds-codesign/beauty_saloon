@@ -70,6 +70,7 @@
 
 <script>
 import api from '../api.js'
+import toast from '../services/toast.js'
 
 export default {
   name: 'ScheduleForm',
@@ -142,14 +143,15 @@ export default {
       try {
         if (this.isEdit) {
           await api.updateSchedule(this.$route.params.id, this.form)
-          alert('اطلاعات برنامه کاری با موفقیت بروزرسانی شد')
+          toast.success('اطلاعات برنامه کاری با موفقیت بروزرسانی شد')
         } else {
           await api.createSchedule(this.form)
-          alert('اطلاعات برنامه کاری با موفقیت ثبت شد')
+          toast.success('برنامه کاری جدید با موفقیت ثبت شد')
         }
         this.$router.push('/schedules')
       } catch (e) {
         this.error = e.message || 'خطا در ذخیره اطلاعات'
+        toast.error(this.error)
       } finally {
         this.saving = false
       }

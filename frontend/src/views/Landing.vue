@@ -171,7 +171,7 @@
                 <span class="price-label">شروع قیمت از:</span>
                 <span class="price-val">۲۵۰,۰۰۰ تومان</span>
               </div>
-              <router-link to="/register" class="service-book-btn">
+              <router-link :to="getServiceBookingLink('کاشت، لمینت و طراحی ناخن')" class="service-book-btn">
                 <span>رزرو این خدمت</span>
                 <i class="fas fa-arrow-left"></i>
               </router-link>
@@ -196,7 +196,7 @@
                 <span class="price-label">شروع قیمت از:</span>
                 <span class="price-val">۱,۵۰۰,۰۰۰ تومان</span>
               </div>
-              <router-link to="/register" class="service-book-btn">
+              <router-link :to="getServiceBookingLink('کراتین، احیا، رنگ و لایت')" class="service-book-btn">
                 <span>رزرو این خدمت</span>
                 <i class="fas fa-arrow-left"></i>
               </router-link>
@@ -221,7 +221,7 @@
                 <span class="price-label">شروع قیمت از:</span>
                 <span class="price-val">۱۸۰,۰۰۰ تومان</span>
               </div>
-              <router-link to="/register" class="service-book-btn">
+              <router-link :to="getServiceBookingLink('فیشیال و جوانسازی پوست')" class="service-book-btn">
                 <span>رزرو این خدمت</span>
                 <i class="fas fa-arrow-left"></i>
               </router-link>
@@ -246,7 +246,7 @@
                 <span class="price-label">شروع قیمت از:</span>
                 <span class="price-val">۵,۰۰۰,۰۰۰ تومان</span>
               </div>
-              <router-link to="/register" class="service-book-btn">
+              <router-link :to="getServiceBookingLink('میکاپ عروس و گریم حرفه‌ای')" class="service-book-btn">
                 <span>رزرو این خدمت</span>
                 <i class="fas fa-arrow-left"></i>
               </router-link>
@@ -271,7 +271,7 @@
                 <span class="price-label">شروع قیمت از:</span>
                 <span class="price-val">۱۸۰,۰۰۰ تومان</span>
               </div>
-              <router-link to="/register" class="service-book-btn">
+              <router-link :to="getServiceBookingLink('اصلاح ابرو، لیفت و لمینت')" class="service-book-btn">
                 <span>رزرو این خدمت</span>
                 <i class="fas fa-arrow-left"></i>
               </router-link>
@@ -567,6 +567,7 @@
 
 <script>
 import { auth } from '../auth.js'
+import toast from '../services/toast.js'
 
 export default {
   name: 'Landing',
@@ -628,9 +629,21 @@ export default {
       }
     },
 
+    getServiceBookingLink(serviceName) {
+      if (this.isLoggedIn) {
+        return '/reservations/new'
+      }
+      return `/register?service=${encodeURIComponent(serviceName)}`
+    },
+
     submitContact() {
+      if (!this.contactForm.name || !this.contactForm.phone) {
+        toast.warning('لطفاً نام و شماره تماس خود را وارد نمایید.')
+        return
+      }
+
       this.contactSent = true
-      alert(`با تشکر از شما ${this.contactForm.name} عزیز! پیام شما دریافت شد و کارشناسان ما به زودی با شماره ${this.contactForm.phone} تماس خواهند گرفت.`)
+      toast.success(`با تشکر از شما ${this.contactForm.name} عزیز! پیام شما با موفقیت ثبت شد و به زودی با شماره ${this.contactForm.phone} تماس حاصل خواهد شد.`, 5000)
       this.contactForm = { name: '', phone: '', service: '', message: '' }
       setTimeout(() => {
         this.contactSent = false

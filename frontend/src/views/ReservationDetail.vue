@@ -86,6 +86,7 @@
 
 <script>
 import api from '../api.js'
+import toast from '../services/toast.js'
 
 export default {
   name: 'ReservationDetail',
@@ -107,7 +108,7 @@ export default {
         this.newStatus = this.reservation.status || 'confirmed'
       } catch (e) {
         console.error(e)
-        alert('خطا در بارگذاری اطلاعات نوبت')
+        toast.error('خطا در بارگذاری اطلاعات نوبت')
       } finally {
         this.loading = false
       }
@@ -118,10 +119,10 @@ export default {
       this.saving = true
       try {
         await api.updateReservationStatus(this.$route.params.id, this.newStatus)
-        alert('وضعیت نوبت با موفقیت بروزرسانی شد')
+        toast.success('وضعیت نوبت با موفقیت بروزرسانی شد')
         this.$router.push('/reservations')
       } catch (e) {
-        alert('خطا در بروزرسانی وضعیت: ' + (e.message || ''))
+        toast.error('خطا در بروزرسانی وضعیت: ' + (e.message || ''))
       } finally {
         this.saving = false
       }

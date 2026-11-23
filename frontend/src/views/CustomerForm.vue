@@ -72,6 +72,7 @@
 
 <script>
 import api from '../api.js'
+import toast from '../services/toast.js'
 
 export default {
   name: 'CustomerForm',
@@ -99,6 +100,11 @@ export default {
     const id = this.$route.params.id
     this.isEdit = !!id
 
+    // اگر از صفحه لندینگ با پارامتر سرویس هدایت شده بود، یادداشت را تکمیل کن
+    if (this.isRegister && this.$route.query.service) {
+      this.form.notes = `سرویس مورد نظر: ${this.$route.query.service}`
+    }
+
     if (id) {
       try {
         const customer = await api.customer(id)
@@ -113,6 +119,7 @@ export default {
         }
       } catch (e) {
         this.error = 'خطا در دریافت اطلاعات مشتری'
+        toast.error(this.error)
         console.error(e)
       }
     }
@@ -125,22 +132,23 @@ export default {
       try {
         if (this.isRegister) {
           await api.register(this.form)
-          alert('ثبت‌نام با موفقیت انجام شد. اکنون می‌توانید وارد شوید.')
+          toast.success('ثبت‌نام شما با موفقیت انجام شد! اکنون می‌توانید وارد حساب خود شوید.')
           this.$router.push('/login')
           return
         }
 
         if (this.isEdit) {
           await api.updateCustomer(this.$route.params.id, this.form)
-          alert('اطلاعات مشتری با موفقیت بروزرسانی شد')
+          toast.success('اطلاعات مشتری با موفقیت بروزرسانی شد')
         } else {
           await api.createCustomer(this.form)
-          alert('اطلاعات مشتری با موفقیت ثبت شد')
+          toast.success('مشتری با موفقیت ثبت شد')
         }
 
         this.$router.push('/customers')
       } catch (e) {
         this.error = e.message || 'خطا در ذخیره اطلاعات'
+        toast.error(this.error)
       } finally {
         this.saving = false
       }

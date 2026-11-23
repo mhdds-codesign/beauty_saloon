@@ -131,6 +131,8 @@
 <script>
 import api from '../api.js'
 import { auth } from '../auth.js'
+import toast from '../services/toast.js'
+import showConfirm from '../services/confirm.js'
 
 export default {
   name: 'Schedules',
@@ -178,7 +180,7 @@ export default {
         }
       } catch (e) {
         console.error(e)
-        alert('خطا در بارگذاری برنامه کاری: ' + (e.message || ''))
+        toast.error('خطا در بارگذاری برنامه کاری: ' + (e.message || ''))
       } finally {
         this.loading = false
       }
@@ -197,12 +199,18 @@ export default {
     },
 
     async doDelete(schedule) {
-      if (!confirm(`آیا از حذف این برنامه کاری مطمئن هستید؟`)) return
+      const ok = await showConfirm(`آیا از حذف این برنامه کاری مطمئن هستید؟`, {
+        title: 'حذف برنامه کاری',
+        confirmText: 'بله، حذف شود'
+      })
+      if (!ok) return
+
       try {
         await api.deleteSchedule(schedule.id)
+        toast.success('برنامه کاری با موفقیت حذف شد')
         this.load()
       } catch (e) {
-        alert('خطا در حذف: ' + (e.message || ''))
+        toast.error('خطا در حذف: ' + (e.message || ''))
       }
     },
 

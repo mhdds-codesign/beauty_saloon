@@ -51,6 +51,7 @@
 
 <script>
 import api from '../api.js'
+import toast from '../services/toast.js'
 
 export default {
   name: 'LineForm',
@@ -94,15 +95,16 @@ export default {
       try {
         if (this.isEdit) {
           await api.updateLine(this.$route.params.id, this.form)
-          alert('اطلاعات لاین / سرویس با موفقیت بروزرسانی شد')
+          toast.success('اطلاعات خدمت با موفقیت بروزرسانی شد')
         } else {
           await api.createLine(this.form)
-          alert('اطلاعات لاین / سرویس با موفقیت ثبت شد')
+          toast.success('خدمت جدید با موفقیت ثبت شد')
         }
 
         this.$router.push('/lines')
       } catch (e) {
         this.error = e.message || 'خطا در ذخیره اطلاعات'
+        toast.error(this.error)
       } finally {
         this.saving = false
       }

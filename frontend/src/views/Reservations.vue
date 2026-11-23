@@ -140,6 +140,7 @@
 
 <script>
 import api from '../api.js'
+import toast from '../services/toast.js'
 
 export default {
   name: 'Reservations',
@@ -181,7 +182,7 @@ export default {
         }
       } catch (e) {
         console.error(e)
-        alert('خطا در بارگذاری نوبت‌ها: ' + (e.message || ''))
+        toast.error('خطا در بارگذاری نوبت‌ها: ' + (e.message || ''))
       } finally {
         this.loading = false
       }

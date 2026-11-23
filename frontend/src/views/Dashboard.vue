@@ -127,6 +127,7 @@
 <script>
 import api from '../api.js'
 import { auth } from '../auth.js'
+import toast from '../services/toast.js'
 
 export default {
   name: 'Dashboard',
@@ -146,7 +147,7 @@ export default {
       this.data = await api.dashboard()
     } catch (e) {
       console.error(e)
-      alert('خطا در بارگذاری داشبورد: ' + (e.message || 'لطفاً دوباره تلاش کنید'))
+      toast.error('خطا در بارگذاری داشبورد: ' + (e.message || 'لطفاً دوباره تلاش کنید'))
     } finally {
       this.loading = false
     }

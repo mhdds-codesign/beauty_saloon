@@ -79,6 +79,7 @@
 <script>
 import api from '../api.js'
 import { auth } from '../auth.js'
+import toast from '../services/toast.js'
 
 export default {
   name: 'ReservationForm',
@@ -133,6 +134,14 @@ export default {
         if (res.line_id) await this.loadAvailableSlots(res.line_id, res)
       } catch (e) {
         this.error = 'خطا در دریافت اطلاعات نوبت'
+        toast.error(this.error)
+      }
+    } else if (this.$route.query.line_id) {
+      // هدایت مستقیم از صفحه لندینگ با سرویس مشخص
+      const qLineId = parseInt(this.$route.query.line_id)
+      if (qLineId) {
+        this.form.line_id = qLineId
+        this.onLineChange()
       }
     }
   },
@@ -204,14 +213,15 @@ export default {
       try {
         if (this.isEdit) {
           await api.updateReservation(this.$route.params.id, this.form)
-          alert('اطلاعات نوبت با موفقیت بروزرسانی شد')
+          toast.success('اطلاعات نوبت با موفقیت بروزرسانی شد')
         } else {
           await api.createReservation(this.form)
-          alert('اطلاعات نوبت با موفقیت ثبت شد')
+          toast.success('نوبت جدید با موفقیت ثبت شد')
         }
         this.$router.push('/reservations')
       } catch (e) {
         this.error = e.message || 'خطا در ثبت نوبت'
+        toast.error(this.error)
       } finally {
         this.saving = false
       }

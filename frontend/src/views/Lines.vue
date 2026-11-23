@@ -130,6 +130,8 @@
 <script>
 import api from '../api.js'
 import { auth } from '../auth.js'
+import toast from '../services/toast.js'
+import showConfirm from '../services/confirm.js'
 
 export default {
   name: 'Lines',
@@ -177,7 +179,7 @@ export default {
         this.totalPages = res.total_pages || 1
       } catch (e) {
         console.error(e)
-        alert('خطا در بارگذاری سرویس ها: ' + (e.message || ''))
+        toast.error('خطا در بارگذاری سرویس‌ها: ' + (e.message || ''))
       } finally {
         this.loading = false
       }
@@ -196,14 +198,18 @@ export default {
     },
 
     async doDelete(line) {
-      if (!confirm(`آیا از حذف سرویس "${line.name_service}" مطمئن هستید؟`)) return
+      const ok = await showConfirm(`آیا از حذف سرویس "${line.name_service}" مطمئن هستید؟`, {
+        title: 'حذف سرویس / لاین',
+        confirmText: 'بله، حذف شود'
+      })
+      if (!ok) return
       
       try {
         await api.deleteLine(line.id)
-        alert('سرویس با موفقیت حذف شد')
+        toast.success(`سرویس "${line.name_service}" با موفقیت حذف شد`)
         this.load()
       } catch (e) {
-        alert('خطا در حذف: ' + (e.message || ''))
+        toast.error('خطا در حذف: ' + (e.message || ''))
       }
     }
   }
