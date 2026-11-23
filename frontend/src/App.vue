@@ -1,14 +1,15 @@
 <template>
-  <div id="app-shell">
-    <nav class="navbar" v-if="loggedIn">
+  <div id="app-shell" class="app-layout">
+    <!-- نوار مدیریت سالن (فقط در صفحات داخلی و هنگام لاگین) -->
+    <nav class="navbar" v-if="showManagementNav">
       <div class="container">
-        <router-link to="/" class="navbar-brand">
-         <i class="fas fa-spa" style="margin-left: 9px; color: #f0dce8;"></i>پنل مدیریت رز بیوتی (rose beauty)
+        <router-link to="/dashboard" class="navbar-brand">
+          <i class="fas fa-spa" style="margin-left: 9px; color: #f0dce8;"></i>پنل مدیریت رز بیوتی (rose beauty)
         </router-link>
         
         <ul class="navbar-nav">
           <li>
-            <router-link to="/">
+            <router-link to="/dashboard">
               <i class="fas fa-chart-pie"></i> داشبورد
             </router-link>
           </li>
@@ -32,6 +33,11 @@
               <i class="fas fa-clock"></i> برنامه کاری
             </router-link>
           </li>
+          <li>
+            <router-link to="/" class="nav-public-link" title="مشاهده پیشخوان عمومی سالن">
+              <i class="fas fa-home"></i> پیشخوان عمومی
+            </router-link>
+          </li>
 
           <li class="nav-right">
             <a href="#" @click.prevent="doLogout" style="color:#f87171;">
@@ -42,21 +48,37 @@
       </div>
     </nav>
 
-    <main class="container" style="margin-top: 2rem;">
+    <!-- بخش اصلی محتوا -->
+    <main :class="['main-content', { 'container app-main-container': !isLandingPage }]">
       <router-view />
     </main>
+
+    <!-- فوتر سراسری برای کل پروژه -->
+    <AppFooter />
   </div>
 </template>
 
 <script>
 import api from './api.js'
 import { auth, loadAuth, clearAuth } from './auth.js'
+import AppFooter from './components/Footer.vue'
 
 export default {
+  components: {
+    AppFooter
+  },
   data() {
     return {
       loggedIn: false,
       auth,
+    }
+  },
+  computed: {
+    isLandingPage() {
+      return this.$route.path === '/'
+    },
+    showManagementNav() {
+      return this.loggedIn && !this.isLandingPage
     }
   },
   async created() {
@@ -65,7 +87,7 @@ export default {
       this.loggedIn = true
     } catch {
       this.loggedIn = false
-      }
+    }
   },
   methods: {
     async doLogout() {
@@ -77,3 +99,31 @@ export default {
   },
 }
 </script>
+
+<style>
+.app-layout {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+.main-content {
+  flex: 1 0 auto;
+}
+.app-main-container {
+  margin-top: 2rem;
+  margin-bottom: 3rem;
+}
+.nav-public-link {
+  color: #ff85c0 !important;
+  font-weight: 600 !important;
+}
+.nav-public-link:hover {
+  color: #ff2d95 !important;
+}
+@media (max-width: 768px) {
+  .app-main-container {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
+}
+</style>
