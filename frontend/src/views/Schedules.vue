@@ -207,13 +207,13 @@ export default {
     },
 
     getStatusText(status) {
-      const map = { free: 'آزاد', busy: 'رزرو شده' }
+      const map = { free: 'آزاد', busy: 'مشغول', reserved: 'در انتظار' }
       return map[status] || status
     },
 
     getStatusClass(status) {
-      const map = { free: 'bg-success', busy: 'bg-danger', reserved: 'bg-warning' }
-      return map[status] || 'bg-secondary'
+      const map = { free: 'badge-success', busy: 'badge-danger', reserved: 'badge-warning' }
+      return map[status] || 'badge-secondary'
     }
   }
 }

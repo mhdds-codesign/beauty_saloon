@@ -131,18 +131,22 @@ export default {
       const map = {
         confirmed: 'تایید شده',
         completed: 'انجام شده',
-        cancelled: 'لغو شده'
+        cancelled: 'کنسل شده',
+        pending: 'در انتظار',
+        waiting: 'در انتظار'
       }
       return map[status] || status
     },
 
     getStatusClass(status) {
       const map = {
-        confirmed: 'bg-info',
-        completed: 'bg-success',
-        cancelled: 'bg-danger'
+        confirmed: 'badge-success',
+        completed: 'badge-success',
+        cancelled: 'badge-danger',
+        pending: 'badge-warning',
+        waiting: 'badge-warning'
       }
-      return map[status] || 'bg-secondary'
+      return map[status] || 'badge-secondary'
     }
   }
 }

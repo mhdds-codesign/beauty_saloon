@@ -382,7 +382,7 @@ input::placeholder {
     white-space: nowrap;
 }
 
-/* ===== BADGES (حل مشکل دوتکه شدن متن وضعیت) ===== */
+/* ===== BADGES (حل مشکل دوتکه شدن متن وضعیت و رنگ‌بندی اختصاصی) ===== */
 .badge {
     display: inline-block;
     white-space: nowrap; /* تضمین تک‌خطی ماندن متن وضعیت */
@@ -398,9 +398,40 @@ input::placeholder {
     vertical-align: middle;
 }
 .badge-secondary { 
-    background: #2a2a2a;
-    color: #aaa;
-    box-shadow: none;
+    background: #2a2a2a !important;
+    color: #aaa !important;
+    box-shadow: none !important;
+}
+
+/* ۱. وضعیت تایید شده و انجام شده: سبز */
+.badge-success, .badge-confirmed, .badge-completed, .bg-success {
+    background: linear-gradient(135deg, #059669, #10b981) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(16, 185, 129, 0.35) !important;
+    border: 1px solid rgba(16, 185, 129, 0.4);
+}
+
+/* ۲. وضعیت کنسل شده یا مشغول: قرمز */
+.badge-danger, .badge-cancelled, .badge-busy, .bg-danger {
+    background: linear-gradient(135deg, #b91c1c, #ef4444) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(239, 68, 68, 0.35) !important;
+    border: 1px solid rgba(239, 68, 68, 0.4);
+}
+
+/* ۳. وضعیت در انتظار یا رزرو شده: خردلی (Mustard / Amber) */
+.badge-warning, .badge-pending, .badge-waiting, .badge-reserved, .bg-warning {
+    background: linear-gradient(135deg, #b45309, #d97706) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(217, 119, 6, 0.4) !important;
+    border: 1px solid rgba(245, 158, 11, 0.45);
+}
+
+/* وضعیت‌های عمومی اطلاعاتی */
+.badge-info, .bg-info {
+    background: linear-gradient(135deg, #0284c7, #38bdf8) !important;
+    color: #ffffff !important;
+    box-shadow: 0 2px 12px rgba(56, 189, 248, 0.35) !important;
 }
 
 /* ===== DASHBOARD STATS GRID ===== */
