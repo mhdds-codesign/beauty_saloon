@@ -75,7 +75,7 @@ export default {
 
       try {
         await api.login(this.username, this.password)
-        window.location.href = '/'
+        window.location.href = '/dashboard'
       } catch (e) {
         this.error = e.message || 'نام کاربری یا رمز عبور اشتباه است'
       } finally {

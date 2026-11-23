@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 
 import Login from './views/Login.vue'
 import Dashboard from './views/Dashboard.vue'
+import Landing from './views/Landing.vue'
 
 // Customers
 import Customers from './views/Customers.vue'
@@ -32,10 +33,17 @@ const routes = [
     component: CustomerForm,
     meta: { requiresAuth: false }
   },
-  { 
-    path: '/', 
-    component: Dashboard, 
-    meta: { requiresAuth: true } 
+  {
+    // پیشخوان همگانی و لندینگ پیج اصلی سالن زیبایی
+    path: '/',
+    component: Landing,
+    meta: { requiresAuth: false }
+  },
+  {
+    // داشبورد و پنل مدیریت سالن (نیازمند احراز هویت)
+    path: '/dashboard',
+    component: Dashboard,
+    meta: { requiresAuth: true }
   },
 
   // ==================== Customers ====================
@@ -132,7 +140,7 @@ router.beforeEach(async (to, from, next) => {
       if (to.meta.requiresAdmin) {
         const me = await res.json()
         if (me.role !== 'admin') {
-          return next('/')
+          return next('/dashboard')
         }
       }
     } catch (err) {
