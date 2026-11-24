@@ -10,7 +10,7 @@
 
       <div class="card">
         <div class="card-header">
-           اطلاعات نوبت
+          <span><i class="fas fa-file-invoice-dollar" style="color: var(--rose-gold); margin-left: 6px;"></i> مشخصات و جزئیات نوبت #{{ reservation.id }}</span>
         </div>
         <div class="card-body" style="padding:0;">
           <div class="table-responsive">

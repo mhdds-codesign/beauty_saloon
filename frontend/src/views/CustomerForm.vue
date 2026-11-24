@@ -1,7 +1,10 @@
 <template>
   <div class="card form-card">
     <div class="card-header">
-      {{ isRegister ? 'ثبت‌نام مشتری' : (isEdit ? 'ویرایش مشتری' : 'مشتری جدید') }}
+      <span>
+        <i class="fas fa-user-circle" style="color: var(--rose-gold); margin-left: 6px;"></i>
+        {{ isRegister ? 'ثبت‌نام مراجعین جدید سالن رز بیوتی' : (isEdit ? 'ویرایش مشخصات مشتری' : 'ثبت مشتری جدید') }}
+      </span>
     </div>
     <div class="card-body">
       <div v-if="error" class="error-msg">

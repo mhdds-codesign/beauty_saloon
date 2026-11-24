@@ -1,7 +1,10 @@
 <template>
   <div class="card form-card">
     <div class="card-header">
-      {{ isEdit ? 'ویرایش برنامه کاری' : 'برنامه کاری جدید' }}
+      <span>
+        <i class="fas fa-calendar-plus" style="color: var(--rose-gold); margin-left: 6px;"></i>
+        {{ isEdit ? 'ویرایش اسلات زمان کاری' : 'تعریف اسلات زمان کاری جدید سالن' }}
+      </span>
     </div>
     <div class="card-body">
       <div v-if="error" class="error-msg">
@@ -25,11 +28,12 @@
         <div class="form-group">
           <label>روز هفته <span class="text-danger">*</span></label>
           <select v-model="form.weekday" required>
-            <option >یکشنبه</option>
-            <option >دوشنبه</option>
-            <option >سه‌شنبه</option>
-            <option >چهارشنبه</option>
-            <option >شنبه</option>
+            <option value="شنبه">شنبه</option>
+            <option value="یکشنبه">یکشنبه</option>
+            <option value="دوشنبه">دوشنبه</option>
+            <option value="سه شنبه">سه‌شنبه</option>
+            <option value="چهارشنبه">چهارشنبه</option>
+            <option value="پنج شنبه">پنج‌شنبه</option>
           </select>
         </div>
 

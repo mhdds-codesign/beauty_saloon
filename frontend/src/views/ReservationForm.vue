@@ -1,7 +1,10 @@
 <template>
   <div class="card form-card">
     <div class="card-header">
-      {{ isEdit ? 'ویرایش نوبت' : 'نوبت جدید' }}
+      <span>
+        <i class="fas fa-calendar-check" style="color: var(--rose-gold); margin-left: 6px;"></i>
+        {{ isEdit ? 'ویرایش اطلاعات نوبت' : 'رزرو نوبت جدید سالن زیبایی' }}
+      </span>
     </div>
     <div class="card-body">
       <div v-if="error" class="error-msg">

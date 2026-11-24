@@ -40,12 +40,12 @@ export default {
 }
 
 .not-found-card {
-  background: rgba(22, 17, 34, 0.9);
-  border: 1px solid rgba(255, 45, 149, 0.25);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6), 0 0 35px rgba(255, 45, 149, 0.15);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border-radius: 24px;
+  background: var(--bg-surface);
+  border: 1px solid var(--border-subtle);
+  box-shadow: var(--shadow-elevated);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border-radius: var(--radius-lg);
   padding: 3rem 2rem;
   max-width: 520px;
   width: 100%;
@@ -61,8 +61,8 @@ export default {
   justify-content: center;
   gap: 0.5rem;
   margin-bottom: 1.5rem;
-  color: #ff2d95;
-  text-shadow: 0 0 25px rgba(255, 45, 149, 0.6), 0 0 50px rgba(255, 45, 149, 0.3);
+  color: var(--rose-gold-light);
+  text-shadow: 0 4px 20px rgba(217, 107, 138, 0.35);
 }
 
 .rose-bloom {

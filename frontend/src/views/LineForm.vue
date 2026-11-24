@@ -1,7 +1,10 @@
 <template>
   <div class="card form-card">
     <div class="card-header">
-      {{ isEdit ? 'ویرایش سرویس / لاین' : 'سرویس / لاین جدید' }}
+      <span>
+        <i class="fas fa-cut" style="color: var(--rose-gold); margin-left: 6px;"></i>
+        {{ isEdit ? 'ویرایش سرویس / لاین تخصصی' : 'تعریف سرویس و لاین جدید سالن' }}
+      </span>
     </div>
     <div class="card-body">
       <div v-if="error" class="error-msg">

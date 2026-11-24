@@ -4,6 +4,45 @@
     box-sizing: border-box;
 }
 
+:root {
+    --bg-base: #0a0818;
+    --bg-surface: rgba(22, 16, 32, 0.88);
+    --bg-surface-elevated: rgba(30, 22, 42, 0.94);
+    --bg-card-header: linear-gradient(135deg, rgba(35, 25, 48, 0.95), rgba(23, 17, 32, 0.95));
+
+    --rose-gold: #ff2d95;
+    --rose-gold-light: #ff6b9d;
+    --rose-gold-dark: #d81b7a;
+    --champagne: #c5a059;
+    --champagne-light: #dfbe7d;
+
+    --text-primary: #fdf6fa;
+    --text-secondary: #f0e6ee;
+    --text-muted: #a695a2;
+    --text-faint: #756673;
+
+    --status-free: #10b981;
+    --status-free-bg: rgba(16, 185, 129, 0.15);
+    --status-free-border: rgba(16, 185, 129, 0.4);
+
+    --status-busy: #ef4444;
+    --status-busy-bg: rgba(239, 68, 68, 0.15);
+    --status-busy-border: rgba(239, 68, 68, 0.4);
+
+    --status-pending: #f59e0b;
+    --status-pending-bg: rgba(245, 158, 11, 0.15);
+    --status-pending-border: rgba(245, 158, 11, 0.4);
+
+    --border-subtle: rgba(255, 45, 149, 0.15);
+    --border-focus: rgba(255, 45, 149, 0.45);
+    --shadow-card: 0 10px 30px rgba(0, 0, 0, 0.4);
+    --shadow-elevated: 0 16px 40px rgba(0, 0, 0, 0.55);
+    --radius-sm: 8px;
+    --radius-md: 12px;
+    --radius-lg: 16px;
+    --radius-pill: 9999px;
+}
+
 body {
     font-family: 'Vazirmatn', sans-serif;
     font-feature-settings: "ss01" 1; /* فعال‌سازی اعداد فارسی */
@@ -32,35 +71,6 @@ body {
 @keyframes drift {
     0%   { transform: scale(1) translate(0, 0); }
     100% { transform: scale(1.08) translate(-3%, 3%); }
-}
-
-/* 2. Starfield Canvas */
-#bg-canvas {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -3;
-    opacity: 0.85;
-}
-
-/* 3. Cursor Glow */
-.cursor-glow {
-    position: fixed;
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    background: radial-gradient(circle, 
-        rgba(255, 240, 245, 0.18) 10%, 
-        rgba(255, 120, 180, 0.12) 40%, 
-        transparent 70%);
-    pointer-events: none;
-    z-index: 9999;
-    transform: translate(-50%, -50%);
-    transition: opacity 0.4s ease;
-    display: none;
-    mix-blend-mode: screen;
 }
 
 .container { 
