@@ -55,6 +55,16 @@
               </router-link>
             </li>
             <li>
+              <router-link to="/about">
+                <i class="fas fa-chevron-left"></i> درباره ما
+              </router-link>
+            </li>
+            <li>
+              <router-link to="/contact">
+                <i class="fas fa-chevron-left"></i> تماس با ما
+              </router-link>
+            </li>
+            <li>
               <router-link to="/reservations/new">
                 <i class="fas fa-chevron-left"></i> رزرو آنلاین نوبت
               </router-link>

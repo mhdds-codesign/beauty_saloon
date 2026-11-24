@@ -2,12 +2,17 @@
   <div id="app-shell" class="app-layout">
     <!-- نوار مدیریت سالن (فقط در صفحات داخلی و هنگام لاگین) -->
     <nav class="navbar" v-if="showManagementNav">
-      <div class="container">
-        <router-link to="/dashboard" class="navbar-brand">
-          <i class="fas fa-spa" style="margin-left: 9px; color: #f0dce8;"></i>پنل مدیریت رز بیوتی (rose beauty)
-        </router-link>
+      <div class="navbar-full-container">
+        <!-- لوگو و عنوان پنل مدیریت (سمت چپ/راست در جای خود) -->
+        <div class="navbar-brand-wrap">
+          <router-link to="/dashboard" class="navbar-brand">
+            <i class="fas fa-spa" style="margin-left: 9px; color: #f0dce8;"></i>
+            <span>پنل مدیریت رز بیوتی (rose beauty)</span>
+          </router-link>
+        </div>
         
-        <ul class="navbar-nav">
+        <!-- منوی وسط‌چین هدر -->
+        <ul class="navbar-center-nav">
           <li>
             <router-link to="/dashboard">
               <i class="fas fa-chart-pie"></i> داشبورد
@@ -43,24 +48,25 @@
               <i class="fas fa-home"></i> پیشخوان عمومی
             </router-link>
           </li>
-
-          <li class="nav-right" style="display: flex; align-items: center; gap: 0.75rem; flex-wrap: wrap;">
-            <span class="user-pill" v-if="auth.username">
-              <i class="fas fa-user-shield" v-if="auth.role === 'admin'"></i>
-              <i class="fas fa-user" v-else></i>
-              {{ auth.username }}
-              <small>({{ auth.role === 'admin' ? 'مدیر سالن' : 'مشتری' }})</small>
-            </span>
-            <a href="#" @click.prevent="doLogout" style="color:#f87171;">
-              <i class="fas fa-sign-out-alt"></i> خروج
-            </a>
-          </li>
         </ul>
+
+        <!-- بخش کاربر و خروج -->
+        <div class="navbar-user-actions">
+          <span class="user-pill" v-if="auth.username">
+            <i class="fas fa-user-shield" v-if="auth.role === 'admin'"></i>
+            <i class="fas fa-user" v-else></i>
+            {{ auth.username }}
+            <small>({{ auth.role === 'admin' ? 'مدیر سالن' : 'مشتری' }})</small>
+          </span>
+          <a href="#" @click.prevent="doLogout" class="navbar-logout-btn">
+            <i class="fas fa-sign-out-alt"></i> خروج
+          </a>
+        </div>
       </div>
     </nav>
 
-    <!-- بخش اصلی محتوا -->
-    <main :class="['main-content', { 'container app-main-container': !isLandingPage }]">
+    <!-- بخش اصلی محتوا (تمام‌عرض برای صفحات مدیریتی) -->
+    <main :class="['main-content', { 'app-main-container': !isStandalonePage }]">
       <router-view />
     </main>
 
@@ -95,8 +101,11 @@ export default {
     isLandingPage() {
       return this.$route.path === '/'
     },
+    isStandalonePage() {
+      return this.$route.path === '/' || this.$route.path === '/about' || this.$route.path === '/contact'
+    },
     showManagementNav() {
-      return !!this.auth.id && !this.isLandingPage
+      return !!this.auth.id && !this.isStandalonePage
     }
   },
   watch: {

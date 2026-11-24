@@ -83,7 +83,7 @@ body {
 .navbar {
     background: #14141489;
     color: #fff;
-    padding: 1rem 0;
+    padding: 0.85rem 0;
     box-shadow: 0 4px 30px rgba(255, 45, 149, 0.15), inset 0 -1px 0 rgba(255, 45, 149, 0.3);
     border-bottom: 1px solid rgba(255, 45, 149, 0.2);
     position: relative;
@@ -105,22 +105,108 @@ body {
     100% { transform: translateX(50%); }
 }
 
+.navbar-full-container {
+    width: 100%;
+    padding: 0 clamp(1rem, 2.5vw, 2.5rem);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+}
+
+.navbar-brand-wrap {
+    display: flex;
+    align-items: center;
+    flex-shrink: 0;
+}
+
+.navbar-brand { 
+    font-size: 1.35rem; 
+    font-weight: 800; 
+    text-decoration: none;
+    color: #e33d90; 
+    letter-spacing: 0.5px;
+    text-shadow: 0 0 20px rgba(255, 45, 149, 0.4);
+    display: inline-flex;
+    align-items: center;
+}
+
+/* آیتم‌های ناوبری در مرکز هدر */
+.navbar-center-nav {
+    display: flex;
+    gap: 1.5rem;
+    list-style: none;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-wrap: wrap;
+    justify-content: center;
+}
+
+.navbar-center-nav a {
+    color: #f0dce8;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 0.95rem;
+    transition: all 0.3s;
+    position: relative;
+    padding: 0.3rem 0.4rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+}
+.navbar-center-nav a::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ff2d95, #ff6b9d);
+    transition: width 0.3s;
+    box-shadow: 0 0 10px rgba(255, 45, 149, 0.4);
+}
+.navbar-center-nav a:hover,
+.navbar-center-nav a.router-link-active {
+    color: #ff6b9d;
+}
+.navbar-center-nav a:hover::after,
+.navbar-center-nav a.router-link-active::after {
+    width: 100%;
+}
+
+.navbar-user-actions {
+    display: flex;
+    align-items: center;
+    gap: 0.9rem;
+    flex-shrink: 0;
+}
+
+.navbar-logout-btn {
+    color: #f87171;
+    text-decoration: none;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    font-size: 0.88rem;
+    font-weight: 600;
+    padding: 0.3rem 0.6rem;
+    border-radius: 8px;
+    transition: all 0.25s;
+}
+.navbar-logout-btn:hover {
+    color: #ffffff;
+    background: rgba(239, 68, 68, 0.2);
+}
+
+/* پشتیبانی از حالت‌های کلاس قدیمی نوبار */
 .navbar .container { 
     display: flex; 
     justify-content: space-between; 
     align-items: center; 
     flex-wrap: wrap; 
 }
-
-.navbar-brand { 
-    font-size: 1.5rem; 
-    font-weight: 800; 
-    text-decoration: none;
-    color: #e33d90; 
-    letter-spacing: 1px;
-    text-shadow: 0 0 20px rgba(255, 45, 149, 0.4);
-}
-
 .navbar-nav { 
     display: flex; 
     gap: 1.8rem; 
@@ -153,6 +239,15 @@ body {
 }
 .navbar-nav .nav-right { 
     margin-left: auto; 
+}
+
+/* تمام‌عرض کردن محتوای صفحات مدیریت (داشبورد، مشتریان، لاین‌ها، نوبت‌ها) */
+.app-main-container {
+    width: 100% !important;
+    max-width: 100% !important;
+    padding-left: clamp(1rem, 2.5vw, 2.5rem) !important;
+    padding-right: clamp(1rem, 2.5vw, 2.5rem) !important;
+    box-sizing: border-box;
 }
 
 /* ===== CARDS ===== */

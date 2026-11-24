@@ -1,83 +1,9 @@
 <template>
   <div class="landing-page">
     <!-- ==================================================== -->
-    <!-- ۱. هدر اختصاصی پیشخوان همگانی (Landing Header)       -->
+    <!-- ۱. هدر یکپارچه و مشترک پیشخوان                       -->
     <!-- ==================================================== -->
-    <header class="landing-header" :class="{ 'scrolled': isScrolled }">
-      <div class="header-container">
-        <!-- لوگو و برند -->
-        <a href="#home" class="brand-link" @click.prevent="scrollTo('#home')">
-          <span class="brand-logo-icon">
-            <i class="fas fa-spa"></i>
-          </span>
-          <div class="brand-title-wrap">
-            <span class="brand-name">رز بیوتی</span>
-            <span class="brand-subtitle">Rose Beauty Salon</span>
-          </div>
-        </a>
-
-        <!-- منوی اصلی ناوبری هدر -->
-        <nav class="nav-menu" :class="{ 'active': mobileMenuOpen }">
-          <a href="#home" class="nav-link" :class="{ 'active': activeSection === 'home' }" @click.prevent="scrollTo('#home')">
-            <i class="fas fa-home"></i> خانه
-          </a>
-          <a href="#services" class="nav-link" :class="{ 'active': activeSection === 'services' }" @click.prevent="scrollTo('#services')">
-            <i class="fas fa-cut"></i> سرویس‌ها و لاین‌ها
-          </a>
-          <a href="#portal" class="nav-link" :class="{ 'active': activeSection === 'portal' }" @click.prevent="scrollTo('#portal')">
-            <i class="fas fa-user-shield"></i> پورتال ورود
-          </a>
-          <a href="#about" class="nav-link" :class="{ 'active': activeSection === 'about' }" @click.prevent="scrollTo('#about')">
-            <i class="fas fa-heart"></i> درباره ما
-          </a>
-          <a href="#contact" class="nav-link" :class="{ 'active': activeSection === 'contact' }" @click.prevent="scrollTo('#contact')">
-            <i class="fas fa-phone-alt"></i> تماس با ما
-          </a>
-
-          <!-- دکمه‌های اقدام در منوی موبایل -->
-          <div class="mobile-nav-actions" v-if="mobileMenuOpen">
-            <template v-if="isLoggedIn">
-              <router-link to="/dashboard" class="btn btn-primary btn-sm w-full">
-                <i class="fas fa-tachometer-alt"></i> ورود به داشبورد
-              </router-link>
-            </template>
-            <template v-else>
-              <router-link to="/login" class="btn btn-primary btn-sm w-full">
-                <i class="fas fa-sign-in-alt"></i> ورود به حساب
-              </router-link>
-              <router-link to="/register" class="btn btn-secondary btn-sm w-full mt-2">
-                <i class="fas fa-user-plus"></i> ثبت‌نام مراجعین
-              </router-link>
-            </template>
-          </div>
-        </nav>
-
-        <!-- دکمه‌های اقدام در دسکتاپ -->
-        <div class="header-actions">
-          <template v-if="isLoggedIn">
-            <router-link to="/dashboard" class="action-btn action-primary">
-              <i class="fas fa-chart-pie"></i>
-              <span>ورود به داشبورد</span>
-            </router-link>
-          </template>
-          <template v-else>
-            <router-link to="/login" class="action-btn action-outline">
-              <i class="fas fa-sign-in-alt"></i>
-              <span>ورود به حساب</span>
-            </router-link>
-            <router-link to="/register" class="action-btn action-primary">
-              <i class="fas fa-calendar-check"></i>
-              <span>نوبت‌دهی آنلاین</span>
-            </router-link>
-          </template>
-
-          <!-- دکمه همبرگری موبایل -->
-          <button class="hamburger-btn" @click="mobileMenuOpen = !mobileMenuOpen" aria-label="منو">
-            <i :class="mobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
-          </button>
-        </div>
-      </div>
-    </header>
+    <PublicHeader />
 
     <!-- ==================================================== -->
     <!-- ۲. بخش هیرو و معرفی اصلی (Hero Section)               -->
@@ -387,178 +313,225 @@
     </section>
 
     <!-- ==================================================== -->
-    <!-- ۵. بخش درباره ما (#about)                             -->
+    <!-- ۵. بخش چرا رز بیوتی؟ (#why-us)                       -->
     <!-- ==================================================== -->
-    <section id="about" class="section about-section">
+    <section id="why-us" class="section why-us-section">
       <div class="section-container">
-        <div class="about-grid">
-          <div class="about-content">
-            <span class="section-tag"><i class="fas fa-gem"></i> درباره سالن زیبایی رز بیوتی</span>
-            <h2 class="section-title">تجربه آرامش، بهداشت و زیبایی در یک قاب</h2>
-            <p class="about-lead">
-              سالن زیبایی <strong>رز بیوتی</strong> با هدف خلق تجربه‌ای فاخر، متمایز و متناسب با سلیقه بانوان خوش‌سلیقه ایرانی فعالیت خود را آغاز نموده است.
-            </p>
-            <p class="about-text">
-              ما باور داریم که زیبایی در هماهنگی، سلامت و آرامش معنا پیدا می‌کند. از این رو، کلیه مواد مصرفی ما از معتبرترین برندهای جهان تهیه شده و بهداشت و استریل وسایل با بالاترین استانداردهای کلینیکی انجام می‌پذیرد.
-            </p>
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fas fa-gem"></i> چرا سالن رز بیوتی؟</span>
+          <h2 class="section-title">دلایل تمایز و درخشش سالن تخصصی رز بیوتی</h2>
+          <p class="section-subtitle">
+            ارائه خدمات در محیطی کاملاً آرام، بهداشتی و با رعایت بالاترین استانداردهای مراقبتی روز دنیا
+          </p>
+        </div>
 
-            <div class="about-pillars">
-              <div class="pillar-box">
-                <i class="fas fa-pump-medical"></i>
-                <div>
-                  <h4>استریل ۱۰۰٪ وسایل</h4>
-                  <p>استفاده از پک‌های یکبار مصرف بهداشتی برای هر مراجع</p>
-                </div>
-              </div>
-              <div class="pillar-box">
-                <i class="fas fa-graduation-cap"></i>
-                <div>
-                  <h4>کادر دارای سرتیفیکیت</h4>
-                  <p>اساتید باتجربه با گواهینامه‌های بین‌المللی معتبر</p>
-                </div>
-              </div>
-              <div class="pillar-box">
-                <i class="fas fa-stopwatch"></i>
-                <div>
-                  <h4>بدون اتلاف وقت</h4>
-                  <p>زمان‌بندی دقیق و نوبت‌دهی منظم بدون معطلی سالن</p>
-                </div>
-              </div>
-              <div class="pillar-box">
-                <i class="fas fa-shield-virus"></i>
-                <div>
-                  <h4>ضمانت اصالت متریال</h4>
-                  <p>مواد ارگانیک بدون آمونیاک، بدون فرمالدهید و تست‌شده</p>
-                </div>
-              </div>
+        <div class="why-us-grid">
+          <div class="why-card">
+            <div class="why-icon-box">
+              <i class="fas fa-pump-medical"></i>
             </div>
+            <h3>استریل ۱۰۰٪ کلینیکی</h3>
+            <p>استفاده از اتوکلاو پزشکی بیمارستانی و پک‌های یکبار مصرف پلمپ‌شده برای تک‌تک مراجعین گرامی.</p>
           </div>
 
-          <div class="about-visual">
-            <div class="visual-card">
-              <div class="visual-badge">
-                <i class="fas fa-certificate"></i>
-                <span>محیط VIP و مجهز</span>
-              </div>
-              <div class="visual-quote">
-                <i class="fas fa-quote-right quote-mark"></i>
-                <p>«زیبایی شما اثر هنری ماست. به سالن رز بیوتی خوش آمدید.»</p>
-                <small>— مدیریت و کادر سالن تخصصی رز بیوتی</small>
-              </div>
-
-              <div class="visual-hours">
-                <div class="vh-item">
-                  <span class="vh-title"><i class="fas fa-clock"></i> ساعات کاری شنبه تا چهارشنبه:</span>
-                  <span class="badge badge-success">۰۹:۰۰ تا ۱۹:۰۰</span>
-                </div>
-                <div class="vh-item">
-                  <span class="vh-title"><i class="fas fa-calendar-day"></i> پنجشنبه‌ها:</span>
-                  <span class="badge badge-warning">۰۹:۰۰ تا ۱۶:۰۰</span>
-                </div>
-              </div>
+          <div class="why-card">
+            <div class="why-icon-box">
+              <i class="fas fa-shield-virus"></i>
             </div>
+            <h3>متریال ارگانیک و بدون آسیب</h3>
+            <p>کلیه مواد مو، پوست و ناخن فاقد آمونیاک و فرمالدهید بوده و دارای تاییدیه اصالت از برترین برندهای اروپا هستند.</p>
           </div>
+
+          <div class="why-card">
+            <div class="why-icon-box">
+              <i class="fas fa-graduation-cap"></i>
+            </div>
+            <h3>اساتید دارای مدارک بین‌المللی</h3>
+            <p>کادر سالن دوره‌دیده در برترین آکادمی‌های تخصصی جهان با تسلط کامل بر جدیدترین متدهای ژورنالی.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon-box">
+              <i class="fas fa-stopwatch"></i>
+            </div>
+            <h3>نوبت‌دهی منظم بدون معطلی</h3>
+            <p>احترام کامل به زمان باارزش شما؛ سامانه هوشمند رزرو زمان‌بندی دقیق و بدون اتلاف وقت را تضمین می‌کند.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon-box">
+              <i class="fas fa-couch"></i>
+            </div>
+            <h3>اتاق‌های مجزا و پذیرایی VIP</h3>
+            <p>محیطی آرامش‌بخش، مجهز به تهویه مطبوع، موسیقی دل‌نشین و پذیرایی اختصاصی برای تجربه‌ای لوکس.</p>
+          </div>
+
+          <div class="why-card">
+            <div class="why-icon-box">
+              <i class="fas fa-medal"></i>
+            </div>
+            <h3>ضمانت رضایت و مشاوره پس از خدمت</h3>
+            <p>پشتیبانی کامل پس از ارائه خدمات، پیگیری رضایت شما و ارائه روتین‌های مراقبت از پوست و مو در منزل.</p>
+          </div>
+        </div>
+
+        <div class="why-footer-cta text-center">
+          <router-link to="/about" class="btn btn-secondary">
+            <i class="fas fa-book-open"></i> مشاهده تاریخچه کامل، مجوزها و اطلاعات بیشتر سالن رز
+          </router-link>
         </div>
       </div>
     </section>
 
     <!-- ==================================================== -->
-    <!-- ۶. بخش تماس با ما (#contact)                          -->
+    <!-- ۶. بخش رضایت و نظرات مراجعین (#reviews)              -->
     <!-- ==================================================== -->
-    <section id="contact" class="section contact-section">
+    <section id="reviews" class="section reviews-section">
       <div class="section-container">
         <div class="section-header text-center">
-          <span class="section-tag"><i class="fas fa-map-marked-alt"></i> راه‌های ارتباطی</span>
-          <h2 class="section-title">تماس با ما و موقعیت سالن</h2>
+          <span class="section-tag"><i class="fas fa-star"></i> تجربیات واقعی</span>
+          <h2 class="section-title">رضایت و نظرات بانوان خوش‌سلیقه</h2>
           <p class="section-subtitle">
-            جهت مشاوره رایگان، استعلام قیمت پکیج‌ها یا هماهنگی نوبت‌های خاص با ما در ارتباط باشید
+            نظرات ثبت‌شده مراجعین عزیزی که زیبایی و سلامت خود را با اطمینان به رز بیوتی سپرده‌اند
           </p>
         </div>
 
-        <div class="contact-grid">
-          <!-- کارت اطلاعات تماس -->
-          <div class="contact-info-card">
-            <h3>اطلاعات دسترسی به سالن</h3>
-            <p>همواره مشتاق دیدار و پاسخگویی به شما مراجعین عزیز هستیم.</p>
-
-            <div class="ci-row">
-              <div class="ci-icon"><i class="fas fa-map-pin"></i></div>
-              <div class="ci-detail">
-                <strong>آدرس سالن:</strong>
-                <p>مشهد، بلوار سجاد، بین بهار و گلستان، ساختمان رز، طبقه ۳، واحد ۶</p>
+        <div class="reviews-grid">
+          <!-- نظر ۱ -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="client-avatar">س‌م</div>
+              <div class="client-info">
+                <h4>سارا محمدی</h4>
+                <span class="service-used-tag">کراتین و احیای ابریشمی مو</span>
               </div>
+              <span class="verified-badge"><i class="fas fa-check-circle"></i> تایید شده</span>
             </div>
-
-            <div class="ci-row">
-              <div class="ci-icon"><i class="fas fa-phone-volume"></i></div>
-              <div class="ci-detail">
-                <strong>تلفن‌های تماس:</strong>
-                <p>
-                  <a href="tel:05137654321">۰۵۱-۳۷۶۵۴۳۲۱</a> — 
-                  <a href="tel:09123456789">۰۹۱۲۳۴۵۶۷۸۹</a>
-                </p>
-              </div>
+            <div class="review-stars">
+              <i class="fas fa-star" v-for="n in 5" :key="n"></i>
             </div>
-
-            <div class="ci-row">
-              <div class="ci-icon"><i class="fab fa-instagram"></i></div>
-              <div class="ci-detail">
-                <strong>اینستاگرام (نمونه کارها):</strong>
-                <p><a href="https://instagram.com" target="_blank" rel="noopener">@rose_beauty_salon</a></p>
-              </div>
-            </div>
-
-            <div class="ci-row">
-              <div class="ci-icon"><i class="fas fa-envelope"></i></div>
-              <div class="ci-detail">
-                <strong>پست الکترونیک:</strong>
-                <p><a href="mailto:contact@rosebeauty.ir">contact@rosebeauty.ir</a></p>
-              </div>
-            </div>
-
-            <div class="parking-note">
-              <i class="fas fa-parking"></i>
-              <span>دارای فضای پارک مناسب در مجاورت ساختمان رز</span>
-            </div>
+            <p class="review-text">
+              «موهای من بر اثر دکلره کاملاً سوخته و دمیج شده بود. اساتید لاین مو با پروتئین‌تراپی و نانوبوتاکس موهام رو کاملاً زنده کردن؛ الان بعد از ۳ ماه هنوز مثل ابریشم نرم و صافه و کوچک‌ترین ریزشی نداشتم. برخورد پرسنل هم فوق‌العاده محترمانه بود.»
+            </p>
           </div>
 
-          <!-- فرم پیام سریع -->
-          <div class="contact-form-card">
-            <h3>ارسال پیام یا درخواست مشاوره</h3>
-            <form @submit.prevent="submitContact">
-              <div class="form-group">
-                <label>نام و نام خانوادگی <span class="req">*</span></label>
-                <input v-model="contactForm.name" type="text" required placeholder="مثال: سارا محمدی" />
+          <!-- نظر ۲ -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="client-avatar">م‌ر</div>
+              <div class="client-info">
+                <h4>مهسا راد</h4>
+                <span class="service-used-tag">کاشت و لمینت روسی ناخن</span>
               </div>
-
-              <div class="form-group">
-                <label>شماره تماس <span class="req">*</span></label>
-                <input v-model="contactForm.phone" type="tel" required placeholder="۰۹۱۲۳۴۵۶۷۸۹" />
-              </div>
-
-              <div class="form-group">
-                <label>لاین مورد نظر</label>
-                <select v-model="contactForm.service">
-                  <option value="">انتخاب لاین (اختیاری)</option>
-                  <option value="ناخن">کاشت و طراحی ناخن</option>
-                  <option value="مو">رنگ، لایت و کراتین مو</option>
-                  <option value="پوست">فیشیال و پاکسازی پوست</option>
-                  <option value="میکاپ">میکاپ عروس و گریم</option>
-                  <option value="ابرو">لیفت و اصلاح ابرو</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label>متن پیام یا سوال شما <span class="req">*</span></label>
-                <textarea v-model="contactForm.message" rows="3" required placeholder="پیام خود را بنویسید..."></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary submit-btn" :disabled="contactSent">
-                <i :class="contactSent ? 'fas fa-check' : 'fas fa-paper-plane'"></i>
-                {{ contactSent ? 'پیام شما دریافت شد' : 'ارسال درخواست مشاوره' }}
-              </button>
-            </form>
+              <span class="verified-badge"><i class="fas fa-check-circle"></i> تایید شده</span>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star" v-for="n in 5" :key="n"></i>
+            </div>
+            <p class="review-text">
+              «من به مواد کاشت حساسیت داشتم و همیشه صدف ناخنم قارچ می‌زد، اما سالن رز از متریال ارگانیک و ضدقارچ استفاده کردن. پک سوهان رو جلوی خودم از بسته استریل باز کردن که واقعاً خیالم رو راحت کرد. دیزاینشون هم فوق‌العاده ظریف و شیکه.»
+            </p>
           </div>
+
+          <!-- نظر ۳ -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="client-avatar">ن‌ح</div>
+              <div class="client-info">
+                <h4>نیلوفر حسینی</h4>
+                <span class="service-used-tag">پکیج VIP میکاپ و شینیون عروس</span>
+              </div>
+              <span class="verified-badge"><i class="fas fa-check-circle"></i> تایید شده</span>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star" v-for="n in 5" :key="n"></i>
+            </div>
+            <p class="review-text">
+              «برای روز عروسیم از چند ماه قبل استرس داشتم. میکاپم در عین حال که چهره خودم رو تغییر نداد، بسیار چشم‌نواز و لایت بود. تا ۴ صبح با وجود عرق و جنب‌وجوش، میکاپ و کانتورینگ تکون نخورد. از صمیم قلب از تیم هنرمند رز بیوتی ممنونم.»
+            </p>
+          </div>
+
+          <!-- نظر ۴ -->
+          <div class="review-card">
+            <div class="review-header">
+              <div class="client-avatar">ف‌ز</div>
+              <div class="client-info">
+                <h4>فاطمه زارعی</h4>
+                <span class="service-used-tag">فیشیال و جوانسازی پوست</span>
+              </div>
+              <span class="verified-badge"><i class="fas fa-check-circle"></i> تایید شده</span>
+            </div>
+            <div class="review-stars">
+              <i class="fas fa-star" v-for="n in 5" :key="n"></i>
+            </div>
+            <p class="review-text">
+              «محیط اتاق فیشیال با ماساژ و دستگاه‌های هیدروفیشیال حس یک اسپای واقعی رو داد. جوش‌های سرسیاه بینیم کاملاً تخلیه شد و پوستم برق خاصی پیدا کرد. روتین مراقبت در منزلی که بهم پیشنهاد دادن هم معجزه کرد.»
+            </p>
+          </div>
+        </div>
+
+        <!-- نوار خلاصه رضایت -->
+        <div class="review-summary-bar">
+          <div class="summary-score">
+            <span class="score-num">۴.۹</span>
+            <span class="score-stars"><i class="fas fa-star" v-for="n in 5" :key="n"></i></span>
+            <span class="score-label">میانگین رضایت مراجعین از ۵۰۰+ نظر ثبت‌شده</span>
+          </div>
+          <router-link to="/register" class="btn btn-primary btn-sm">
+            <i class="fas fa-calendar-plus"></i> تجربه درخشش در رز بیوتی
+          </router-link>
+        </div>
+      </div>
+    </section>
+
+    <!-- ==================================================== -->
+    <!-- ۷. بخش سوالات متداول مشتریان (#faq)                  -->
+    <!-- ==================================================== -->
+    <section id="faq" class="section faq-section">
+      <div class="section-container">
+        <div class="section-header text-center">
+          <span class="section-tag"><i class="fas fa-question-circle"></i> پرسش‌های پرتکرار</span>
+          <h2 class="section-title">سوالات متداول مراجعین گرامی</h2>
+          <p class="section-subtitle">
+            پاسخ به سوالاتی که بیشترین بار توسط مراجعین پیش از حضور در سالن مطرح می‌گردد
+          </p>
+        </div>
+
+        <div class="faq-accordion-wrap">
+          <div 
+            v-for="(item, index) in faqs" 
+            :key="index"
+            class="faq-item"
+            :class="{ 'active': activeFaq === index }"
+          >
+            <button class="faq-question-btn" @click="toggleFaq(index)" :aria-expanded="activeFaq === index">
+              <span class="faq-q-title">
+                <i class="far fa-question-circle"></i> {{ item.q }}
+              </span>
+              <span class="faq-toggle-icon">
+                <i :class="activeFaq === index ? 'fas fa-minus' : 'fas fa-plus'"></i>
+              </span>
+            </button>
+            <transition name="accordion">
+              <div class="faq-answer-body" v-if="activeFaq === index">
+                <p>{{ item.a }}</p>
+              </div>
+            </transition>
+          </div>
+        </div>
+
+        <!-- کارت هدایت به صفحه درباره ما و تماس -->
+        <div class="faq-help-box">
+          <div class="help-content">
+            <div class="help-icon"><i class="fas fa-comments"></i></div>
+            <div>
+              <h3>هنوز سوالی دارید یا مایل به مشاوره حضوری هستید؟</h3>
+              <p>جهت مشاهده آدرس سالن در مشهد، تلفن‌های تماس مستقیم و فرم ارسال پیام، به صفحه تماس مراجعه نمایید.</p>
+            </div>
+          </div>
+          <router-link to="/about" class="btn btn-primary">
+            <i class="fas fa-map-marked-alt"></i> صفحه درباره ما و اطلاعات تماس
+          </router-link>
         </div>
       </div>
     </section>
@@ -566,24 +539,48 @@
 </template>
 
 <script>
+import PublicHeader from '../components/PublicHeader.vue'
 import { auth } from '../auth.js'
 import toast from '../services/toast.js'
 
 export default {
   name: 'Landing',
+  components: {
+    PublicHeader
+  },
   data() {
     return {
       auth,
       mobileMenuOpen: false,
       isScrolled: false,
       activeSection: 'home',
-      contactSent: false,
-      contactForm: {
-        name: '',
-        phone: '',
-        service: '',
-        message: ''
-      }
+      activeFaq: 0,
+      faqs: [
+        {
+          q: 'چگونه می‌توانم در سالن زیبایی رز بیوتی نوبت آنلاین رزرو کنم؟',
+          a: 'در کمتر از ۲ دقیقه با کلیک بر روی دکمه «نوبت‌دهی آنلاین» یا انتخاب سرویس مورد نظر، لاین و ساعت آزاد دلخواه خود را ثبت کنید. فرآیند رزرو کاملاً آنلاین بوده و نیازی به تماس تلفنی یا پیش‌پرداخت ندارد.'
+        },
+        {
+          q: 'آیا مواد مصرفی برای مو و ناخن باعث حساسیت یا آسیب می‌شوند؟',
+          a: 'خیر، کلیه متریال سالن ارگانیک، فاقد آمونیاک، بدون فرمالدهید و دارای تاییدیه‌های سلامت اتحادیه اروپا هستند. سلامت پوست، مو و ناخن مراجعین اولویت نخست سالن رز است.'
+        },
+        {
+          q: 'شرایط لغو یا تغییر زمان نوبت به چه صورت است؟',
+          a: 'شما می‌توانید تا ۲۴ ساعت قبل از زمان تعیین‌شده، از طریق حساب کاربری خود یا تماس با پشتیبانی سالن، نوبت خود را بدون کسر وجه لغو نموده یا به زمان دیگری موکول فرمایید.'
+        },
+        {
+          q: 'چه مدت قبل از مراسم باید برای پکیج میکاپ عروس و VIP هماهنگ کنیم؟',
+          a: 'پیشنهاد می‌کنیم حداقل ۱ الی ۲ ماه قبل از تاریخ مراسم برای جلسه مشاوره حضوری رایگان، بررسی نوع پوست و مو و رزرو تاریخ سالن اقدام فرمایید.'
+        },
+        {
+          q: 'وسایل و ابزارهای سالن چگونه استریل و بهداشتی می‌شوند؟',
+          a: 'تمامی ابزارهای چندبارمصرف درون دستگاه اتوکلاو پزشکی با حرارت و فشار استریل شده و پک‌های ناخن، سوهان و پیش‌بند برای هر مراجع در ساشه یکبارمصرف پلمپ‌شده باز می‌شود.'
+        },
+        {
+          q: 'ساعات کاری سالن در طول هفته به چه صورت است؟',
+          a: 'شنبه تا چهارشنبه از ساعت ۰۹:۰۰ الی ۱۹:۰۰ و پنجشنبه‌ها از ۰۹:۰۰ الی ۱۶:۰۰ در خدمت شما هستیم. روزهای جمعه صرفاً مختص خدمات و قراردادهای ویژه عروس می‌باشد.'
+        }
+      ]
     }
   },
   computed: {
@@ -603,7 +600,7 @@ export default {
       this.isScrolled = window.scrollY > 40
 
       // تشخیص سکشن فعال
-      const sections = ['home', 'services', 'portal', 'about', 'contact']
+      const sections = ['home', 'services', 'portal', 'why-us', 'reviews', 'faq']
       const scrollPos = window.scrollY + 120
 
       for (let sec of sections) {
@@ -617,6 +614,10 @@ export default {
           }
         }
       }
+    },
+
+    toggleFaq(index) {
+      this.activeFaq = this.activeFaq === index ? null : index
     },
 
     scrollTo(targetId) {
@@ -1358,252 +1359,351 @@ export default {
   color: #ff6b9d;
 }
 
-/* 5. About Section */
-.about-grid {
+.nav-link-highlight {
+  background: rgba(255, 45, 149, 0.12) !important;
+  color: #ff6b9d !important;
+  border: 1px solid rgba(255, 45, 149, 0.3);
+}
+.nav-link-highlight:hover {
+  background: #ff2d95 !important;
+  color: #fff !important;
+}
+
+/* 5. Why Us Section */
+.why-us-grid {
   display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 3.5rem;
-  align-items: center;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin-bottom: 2.5rem;
 }
 
-.about-lead {
-  font-size: 1.15rem;
-  line-height: 1.9;
-  color: #f0e6ee;
-  margin-bottom: 1rem;
-}
-
-.about-text {
-  font-size: 0.95rem;
-  line-height: 1.85;
-  color: #bfacba;
-  margin-bottom: 2rem;
-}
-
-.about-pillars {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 1.4rem;
-}
-
-.pillar-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 45, 149, 0.12);
-  border-radius: 16px;
-  padding: 1.2rem;
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  transition: all 0.25s;
-}
-
-.pillar-box:hover {
-  background: rgba(255, 45, 149, 0.06);
-  border-color: rgba(255, 45, 149, 0.3);
-}
-
-.pillar-box i {
-  font-size: 1.8rem;
-  color: #ff6b9d;
-  margin-top: 0.2rem;
-}
-
-.pillar-box h4 {
-  font-size: 0.98rem;
-  font-weight: 700;
-  color: #fff;
-  margin-bottom: 0.25rem;
-}
-
-.pillar-box p {
-  font-size: 0.8rem;
-  color: #9f8c9a;
-  line-height: 1.5;
-  margin: 0;
-}
-
-.visual-card {
-  background: linear-gradient(135deg, rgba(25, 18, 48, 0.85), rgba(15, 10, 32, 0.9));
-  border: 1px solid rgba(255, 45, 149, 0.25);
-  border-radius: 24px;
-  padding: 2.5rem 2rem;
-  box-shadow: 0 15px 50px rgba(0, 0, 0, 0.6);
-  position: relative;
-}
-
-.visual-badge {
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-  padding: 0.35rem 0.9rem;
+.why-card {
+  background: rgba(20, 16, 42, 0.65);
+  border: 1px solid rgba(255, 45, 149, 0.18);
   border-radius: 20px;
-  background: rgba(255, 45, 149, 0.15);
-  color: #ff6b9d;
-  font-size: 0.82rem;
-  font-weight: 600;
-  margin-bottom: 1.8rem;
-}
-
-.visual-quote {
-  margin-bottom: 2rem;
-}
-
-.quote-mark {
-  font-size: 2.2rem;
-  color: #ff2d95;
-  opacity: 0.5;
-  display: block;
-  margin-bottom: 0.5rem;
-}
-
-.visual-quote p {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: #fff;
-  line-height: 1.7;
-  margin-bottom: 0.8rem;
-}
-
-.visual-quote small {
-  color: #ff6b9d;
-  font-size: 0.85rem;
-}
-
-.visual-hours {
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
-  padding-top: 1.5rem;
+  padding: 2rem 1.8rem;
+  transition: all 0.3s ease;
   display: flex;
   flex-direction: column;
-  gap: 0.8rem;
+  position: relative;
+  overflow: hidden;
 }
 
-.vh-item {
+.why-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 100%;
+  height: 2px;
+  background: linear-gradient(90deg, transparent, #ff2d95, transparent);
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.why-card:hover {
+  transform: translateY(-5px);
+  border-color: rgba(255, 45, 149, 0.45);
+  box-shadow: 0 12px 35px rgba(255, 45, 149, 0.18);
+}
+
+.why-card:hover::before {
+  opacity: 1;
+}
+
+.why-icon-box {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255, 45, 149, 0.25), rgba(255, 107, 157, 0.15));
+  border: 1px solid rgba(255, 45, 149, 0.3);
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  font-size: 0.85rem;
-}
-
-.vh-title {
-  color: #d1c4ce;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
-.vh-title i {
+  justify-content: center;
+  font-size: 1.4rem;
   color: #ff6b9d;
+  margin-bottom: 1.4rem;
 }
 
-/* 6. Contact Section */
-.contact-grid {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-}
-
-.contact-info-card,
-.contact-form-card {
-  background: rgba(20, 16, 42, 0.7);
-  border: 1px solid rgba(255, 45, 149, 0.18);
-  border-radius: 22px;
-  padding: 2.5rem;
-  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
-}
-
-.contact-info-card h3,
-.contact-form-card h3 {
-  font-size: 1.35rem;
+.why-card h3 {
+  font-size: 1.15rem;
   font-weight: 800;
   color: #fff;
   margin-bottom: 0.6rem;
 }
 
-.contact-info-card p {
-  color: #bfacba;
-  font-size: 0.9rem;
-  margin-bottom: 2rem;
+.why-card p {
+  color: #bfa9b8;
+  font-size: 0.88rem;
+  line-height: 1.7;
+  margin: 0;
 }
 
-.ci-row {
+.why-footer-cta {
+  margin-top: 1rem;
+}
+
+/* 6. Reviews Section */
+.reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.8rem;
+  margin-bottom: 2.5rem;
+}
+
+.review-card {
+  background: rgba(20, 16, 42, 0.7);
+  border: 1px solid rgba(255, 45, 149, 0.18);
+  border-radius: 20px;
+  padding: 1.8rem;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
   display: flex;
-  align-items: flex-start;
-  gap: 1.1rem;
-  margin-bottom: 1.6rem;
+  flex-direction: column;
+  justify-content: space-between;
+  transition: all 0.3s ease;
 }
 
-.ci-icon {
+.review-card:hover {
+  transform: translateY(-4px);
+  border-color: rgba(255, 45, 149, 0.4);
+  box-shadow: 0 14px 40px rgba(255, 45, 149, 0.15);
+}
+
+.review-header {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.client-avatar {
   width: 44px;
   height: 44px;
-  border-radius: 12px;
-  background: rgba(255, 45, 149, 0.12);
-  border: 1px solid rgba(255, 45, 149, 0.25);
+  border-radius: 50%;
+  background: linear-gradient(135deg, #ff2d95, #c5a059);
+  color: #fff;
+  font-weight: 800;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ff6b9d;
-  font-size: 1.2rem;
+  font-size: 0.88rem;
   flex-shrink: 0;
 }
 
-.ci-detail strong {
-  display: block;
-  font-size: 0.92rem;
+.client-info h4 {
+  font-size: 0.98rem;
+  font-weight: 700;
   color: #fff;
-  margin-bottom: 0.25rem;
+  margin: 0 0 0.15rem;
 }
 
-.ci-detail p {
-  font-size: 0.88rem;
-  color: #d1c4ce;
-  margin: 0;
-  line-height: 1.6;
-}
-
-.ci-detail a {
+.service-used-tag {
+  font-size: 0.72rem;
   color: #ff6b9d;
-  text-decoration: none;
-  font-weight: 600;
-  direction: ltr;
-  display: inline-block;
+  display: block;
 }
 
-.ci-detail a:hover {
-  text-decoration: underline;
-  color: #fff;
-}
-
-.parking-note {
-  margin-top: 2rem;
-  padding: 0.8rem 1rem;
-  border-radius: 12px;
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.25);
+.verified-badge {
+  margin-right: auto;
+  font-size: 0.7rem;
   color: #10b981;
+  background: rgba(16, 185, 129, 0.12);
+  padding: 0.2rem 0.5rem;
+  border-radius: 20px;
+  border: 1px solid rgba(16, 185, 129, 0.3);
+  white-space: nowrap;
+}
+
+.review-stars {
+  display: flex;
+  gap: 0.2rem;
+  color: #f59e0b;
   font-size: 0.85rem;
+  margin-bottom: 0.8rem;
+}
+
+.review-text {
+  font-size: 0.88rem;
+  line-height: 1.75;
+  color: #dfd0dc;
+  margin: 0;
+}
+
+.review-summary-bar {
+  background: linear-gradient(135deg, rgba(30, 20, 50, 0.8), rgba(15, 10, 30, 0.9));
+  border: 1px solid rgba(255, 45, 149, 0.3);
+  border-radius: 18px;
+  padding: 1.4rem 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+
+.summary-score {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+}
+
+.score-num {
+  font-size: 2rem;
+  font-weight: 900;
+  color: #ff6b9d;
+}
+
+.score-stars {
+  color: #f59e0b;
+  font-size: 1.1rem;
+}
+
+.score-label {
+  font-size: 0.9rem;
+  color: #d1c4ce;
+}
+
+/* 7. FAQ Section */
+.faq-accordion-wrap {
+  max-width: 860px;
+  margin: 0 auto 3rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.faq-item {
+  background: rgba(20, 16, 42, 0.7);
+  border: 1px solid rgba(255, 45, 149, 0.18);
+  border-radius: 16px;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.faq-item.active {
+  border-color: rgba(255, 45, 149, 0.5);
+  box-shadow: 0 8px 30px rgba(255, 45, 149, 0.15);
+}
+
+.faq-question-btn {
+  width: 100%;
+  background: none;
+  border: none;
+  padding: 1.2rem 1.6rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  text-align: right;
+  cursor: pointer;
+  color: #fff;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 700;
+  transition: all 0.25s;
+}
+
+.faq-question-btn:hover {
+  color: #ff6b9d;
+}
+
+.faq-q-title {
   display: flex;
   align-items: center;
   gap: 0.6rem;
 }
 
-.contact-form-card .form-group {
-  margin-bottom: 1.2rem;
+.faq-q-title i {
+  color: #ff6b9d;
+  font-size: 1.1rem;
 }
 
-.contact-form-card label {
-  font-size: 0.88rem;
-  margin-bottom: 0.4rem;
+.faq-toggle-icon {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  background: rgba(255, 45, 149, 0.12);
+  color: #ff6b9d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.85rem;
+  flex-shrink: 0;
+  transition: transform 0.25s;
 }
 
-.req {
-  color: #ef4444;
+.faq-item.active .faq-toggle-icon {
+  background: #ff2d95;
+  color: #fff;
 }
 
-.submit-btn {
-  width: 100%;
-  padding: 0.85rem;
-  margin: 0.5rem 0 0 0;
-  font-size: 0.95rem;
+.faq-answer-body {
+  padding: 0 1.6rem 1.4rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+  margin-top: -0.2rem;
+  padding-top: 1rem;
+}
+
+.faq-answer-body p {
+  margin: 0;
+  color: #dfd0dc;
+  font-size: 0.92rem;
+  line-height: 1.8;
+}
+
+.accordion-enter-active,
+.accordion-leave-active {
+  transition: all 0.3s ease;
+}
+.accordion-enter-from,
+.accordion-leave-to {
+  opacity: 0;
+  transform: translateY(-8px);
+}
+
+.faq-help-box {
+  background: linear-gradient(135deg, rgba(25, 18, 48, 0.85), rgba(15, 10, 32, 0.9));
+  border: 1px solid rgba(255, 45, 149, 0.25);
+  border-radius: 20px;
+  padding: 2rem 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+
+.help-content {
+  display: flex;
+  align-items: center;
+  gap: 1.2rem;
+  flex: 1 1 300px;
+}
+
+.help-icon {
+  width: 50px;
+  height: 50px;
+  border-radius: 14px;
+  background: rgba(255, 45, 149, 0.15);
+  color: #ff6b9d;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.4rem;
+  flex-shrink: 0;
+}
+
+.help-content h3 {
+  font-size: 1.15rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 0.3rem;
+}
+
+.help-content p {
+  color: #bfa9b8;
+  font-size: 0.85rem;
+  margin: 0;
 }
 
 /* ==================================================== */

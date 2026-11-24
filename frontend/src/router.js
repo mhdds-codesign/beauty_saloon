@@ -3,6 +3,8 @@ import { createRouter, createWebHistory } from 'vue-router'
 import Login from './views/Login.vue'
 import Dashboard from './views/Dashboard.vue'
 import Landing from './views/Landing.vue'
+import About from './views/About.vue'
+import Contact from './views/Contact.vue'
 import NotFound from './views/NotFound.vue'
 
 // Customers
@@ -29,6 +31,22 @@ const routes = [
     meta: { 
       requiresAuth: false,
       title: 'رز بیوتی | سالن زیبایی و نوبت‌دهی آنلاین'
+    }
+  },
+  {
+    path: '/about',
+    component: About,
+    meta: { 
+      requiresAuth: false,
+      title: 'درباره ما | سالن زیبایی رز بیوتی'
+    }
+  },
+  {
+    path: '/contact',
+    component: Contact,
+    meta: { 
+      requiresAuth: false,
+      title: 'تماس با ما | سالن زیبایی رز بیوتی'
     }
   },
   {
