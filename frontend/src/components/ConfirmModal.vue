@@ -85,9 +85,9 @@ export default {
 .confirm-backdrop {
   position: fixed;
   inset: 0;
-  background: rgba(10, 7, 16, 0.78);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
+  background: rgba(51, 13, 30, 0.55);
+  backdrop-filter: blur(6px);
+  -webkit-backdrop-filter: blur(6px);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -96,14 +96,14 @@ export default {
 }
 
 .confirm-card {
-  background: rgba(24, 18, 36, 0.98);
-  border: 1px solid rgba(255, 45, 149, 0.3);
-  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.7), 0 0 30px rgba(255, 45, 149, 0.15);
-  border-radius: 18px;
+  background: #faf3f6;
+  border: 2px solid #561935;
+  box-shadow: 0 20px 50px rgba(51, 13, 30, 0.35);
+  border-radius: 22px;
   width: 100%;
   max-width: 440px;
   padding: 1.75rem;
-  color: #f7eaf1;
+  color: #330d1e;
   text-align: right;
   animation: cardPop 0.25s cubic-bezier(0.16, 1, 0.3, 1);
 }
@@ -123,39 +123,37 @@ export default {
   display: flex;
   align-items: center;
   gap: 1rem;
-  margin-bottom: 1.25rem;
+  margin-bottom: 1.15rem;
 }
 
 .confirm-icon-box {
   width: 48px;
   height: 48px;
   border-radius: 14px;
-  background: rgba(255, 45, 149, 0.15);
-  border: 1px solid rgba(255, 45, 149, 0.35);
+  background: #561935;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
-  color: #ff2d95;
+  color: #ffffff;
   flex-shrink: 0;
 }
 
 .confirm-icon-box.icon-danger {
-  background: rgba(239, 68, 68, 0.15);
-  border-color: rgba(239, 68, 68, 0.4);
-  color: #ef4444;
+  background: #dc2626;
+  color: #ffffff;
 }
 
 .confirm-title {
   font-size: 1.15rem;
-  font-weight: 700;
+  font-weight: 800;
   margin: 0;
-  color: #fff;
+  color: #330d1e;
 }
 
 .confirm-body p {
-  color: #d8c8d4;
-  font-size: 0.96rem;
+  color: #58283e;
+  font-size: 0.95rem;
   line-height: 1.65;
   margin: 0 0 1.5rem 0;
 }

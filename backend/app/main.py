@@ -96,9 +96,10 @@ if os.path.isdir(STATIC_DIR):
     app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
 
 if FRONTEND_DIST:
-    assets_dir = os.path.join(FRONTEND_DIST, "assets")
-    if os.path.isdir(assets_dir):
-        app.mount("/assets", StaticFiles(directory=assets_dir), name="assets")
+    for folder in ("assets", "images", "fonts"):
+        sub_dir = os.path.join(FRONTEND_DIST, folder)
+        if os.path.isdir(sub_dir):
+            app.mount(f"/{folder}", StaticFiles(directory=sub_dir), name=folder)
 
 # ======================== Include Routers ========================
 app.include_router(auth_router)

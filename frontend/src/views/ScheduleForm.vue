@@ -49,7 +49,7 @@
           </div>
           <div class="form-group col-6">
             <label>ساعت پایان</label>
-            <input v-model="form.end_time" type="time" disabled class="disabled-input" style="background-color: #6c757d; cursor: not-allowed;" />
+            <input v-model="form.end_time" type="time" disabled class="disabled-input" style="background-color: #f0e0e7; color: #58283e; cursor: not-allowed;" />
           </div>
         </div>
 

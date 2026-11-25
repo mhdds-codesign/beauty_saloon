@@ -1,102 +1,87 @@
 <template>
-  <footer class="site-footer">
-    <!-- حاشیه گرادیانی بالای فوتر -->
-    <div class="footer-top-accent"></div>
-
-    <div class="footer-container">
+  <footer class="editorial-footer-wrapper">
+    <div class="editorial-footer-block">
       <div class="footer-grid">
-        <!-- ستون ۱: معرفی سالن و برند -->
-        <div class="footer-col brand-col">
-          <div class="footer-brand">
-            <span class="brand-icon">
+        <!-- ستون ۱: معرفی برند و شبکه‌های اجتماعی -->
+        <div class="footer-brand-col">
+          <div class="footer-brand-header">
+            <span class="brand-emblem-sq">
               <i class="fas fa-spa"></i>
             </span>
-            <div class="brand-text">
-              <h3>رز بیوتی</h3>
-              <small>Rose Beauty Salon</small>
+            <div>
+              <h3 class="footer-brand-title">رز بیوتی</h3>
+              <small class="footer-brand-en editorial-serif">ROSE BEAUTY SALON</small>
             </div>
           </div>
-          <p class="brand-desc">
-            مرکز تخصصی و لوکس خدمات زیبایی، پوست، مو، ناخن و میکاپ عروس با استفاده از برترین برندهای بین‌المللی و کادری مجرب در محیطی بهداشتی و آرامش‌بخش.
-          </p>
-          <div class="social-links">
-            <a href="https://instagram.com" target="_blank" rel="noopener" class="social-btn" title="اینستاگرام">
-              <i class="fab fa-instagram"></i>
-            </a>
-            <a href="https://t.me" target="_blank" rel="noopener" class="social-btn" title="تلگرام">
-              <i class="fab fa-telegram-plane"></i>
-            </a>
-            <a href="https://wa.me" target="_blank" rel="noopener" class="social-btn" title="واتساپ">
-              <i class="fab fa-whatsapp"></i>
-            </a>
-            <a href="tel:09123456789" class="social-btn" title="تماس مستقیم">
-              <i class="fas fa-phone-alt"></i>
-            </a>
+
+          <div class="footer-cream-box">
+            <p class="brand-desc">
+              مرکز تخصصی و لوکس خدمات زیبایی، پوست، مو، ناخن و میکاپ عروس با استفاده از برترین برندهای بین‌المللی و کادری مجرب در محیطی استریل و آرامش‌بخش.
+            </p>
+            <div class="footer-cta-row">
+              <router-link to="/reservations/new" class="footer-pill-cta">
+                رزرو نوبت!
+              </router-link>
+              <div class="social-links">
+                <a href="https://instagram.com" target="_blank" rel="noopener" class="social-sq-btn" title="اینستاگرام">
+                  <i class="fab fa-instagram"></i>
+                </a>
+                <a href="https://t.me" target="_blank" rel="noopener" class="social-sq-btn" title="تلگرام">
+                  <i class="fab fa-telegram-plane"></i>
+                </a>
+                <a href="tel:09123456789" class="social-sq-btn" title="تماس مستقیم">
+                  <i class="fas fa-phone-alt"></i>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <div class="footer-stamp-pill">
+            <i class="fas fa-certificate"></i>
+            <span>ROSE BEAUTY • CERTIFIED LUXURY SALON</span>
           </div>
         </div>
 
         <!-- ستون ۲: دسترسی سریع -->
-        <div class="footer-col">
-          <h4 class="col-title">دسترسی سریع</h4>
+        <div class="footer-cream-card">
+          <h4 class="card-col-title">دسترسی سریع</h4>
           <ul class="footer-links">
             <li>
-              <router-link to="/">
-                <i class="fas fa-chevron-left"></i> صفحه اصلی (پیشخوان عمومی)
-              </router-link>
+              <router-link to="/"><i class="fas fa-chevron-left"></i> صفحه اصلی (پیشخوان)</router-link>
             </li>
             <li>
-              <router-link to="/dashboard">
-                <i class="fas fa-chevron-left"></i> داشبورد و پنل مدیریت
-              </router-link>
+              <router-link to="/dashboard"><i class="fas fa-chevron-left"></i> داشبورد مدیریت</router-link>
             </li>
             <li>
-              <router-link to="/lines">
-                <i class="fas fa-chevron-left"></i> خدمات و تعرفه‌های سالن
-              </router-link>
+              <router-link to="/lines"><i class="fas fa-chevron-left"></i> سرویس‌ها و تعرفه‌ها</router-link>
             </li>
             <li>
-              <router-link to="/about">
-                <i class="fas fa-chevron-left"></i> درباره ما
-              </router-link>
+              <router-link to="/about"><i class="fas fa-chevron-left"></i> درباره ما</router-link>
             </li>
             <li>
-              <router-link to="/contact">
-                <i class="fas fa-chevron-left"></i> تماس با ما
-              </router-link>
+              <router-link to="/contact"><i class="fas fa-chevron-left"></i> تماس با ما</router-link>
             </li>
             <li>
-              <router-link to="/reservations/new">
-                <i class="fas fa-chevron-left"></i> رزرو آنلاین نوبت
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/register">
-                <i class="fas fa-chevron-left"></i> ثبت‌نام مراجعین جدید
-              </router-link>
-            </li>
-            <li>
-              <router-link to="/login">
-                <i class="fas fa-chevron-left"></i> ورود به حساب کاربری
-              </router-link>
+              <router-link to="/login"><i class="fas fa-chevron-left"></i> ورود به حساب کاربری</router-link>
             </li>
           </ul>
         </div>
 
         <!-- ستون ۳: ساعات کاری سالن -->
-        <div class="footer-col">
-          <h4 class="col-title">ساعات کاری و پذیرش</h4>
+        <div class="footer-cream-card">
+          <h4 class="card-col-title">ساعات کاری و پذیرش</h4>
           <ul class="schedule-list">
             <li>
               <span class="day"><i class="far fa-clock"></i> شنبه تا چهارشنبه:</span>
-              <span class="hours badge badge-success">۰۹:۰۰ الی ۱۹:۰۰</span>
+              <span class="badge badge-success">۰۹:۰۰ الی ۱۹:۰۰</span>
             </li>
             <li>
               <span class="day"><i class="far fa-clock"></i> پنجشنبه‌ها:</span>
-              <span class="hours badge badge-warning">۰۹:۰۰ الی ۱۶:۰۰</span>
+              <span class="badge badge-warning">۰۹:۰۰ الی ۱۶:۰۰</span>
             </li>
             <li>
-              <span class="day"><i class="far fa-calendar-alt"></i> جمعه‌ها و ایام تعطیل:</span>
-              <span class="hours badge badge-danger">فقط رزروهای عروس</span>
+              <span class="day"><i class="far fa-calendar-alt"></i> جمعه‌ها و تعطیلات:</span>
+              <span class="badge badge-danger">فقط رزرو عروس</span>
             </li>
           </ul>
           <div class="call-banner">
@@ -108,9 +93,9 @@
           </div>
         </div>
 
-        <!-- ستون ۴: اطلاعات تماس و آدرس -->
-        <div class="footer-col">
-          <h4 class="col-title">ارتباط با ما</h4>
+        <!-- ستون ۴: ارتباط با ما -->
+        <div class="footer-cream-card">
+          <h4 class="card-col-title">نشانی و تماس</h4>
           <ul class="contact-info">
             <li>
               <i class="fas fa-map-marker-alt contact-icon"></i>
@@ -122,24 +107,34 @@
             </li>
             <li>
               <i class="fas fa-envelope contact-icon"></i>
-              <span>پست الکترونیک: <a href="mailto:info@rosebeauty.ir">info@rosebeauty.ir</a></span>
+              <span>ایمیل: <a href="mailto:info@rosebeauty.ir">info@rosebeauty.ir</a></span>
             </li>
           </ul>
           <div class="features-pill">
-            <span><i class="fas fa-shield-alt text-success"></i> محیط کاملاً استریل</span>
-            <span><i class="fas fa-wifi text-info"></i> اینترنت رایگان مراجعین</span>
+            <span><i class="fas fa-shield-alt text-success"></i> استریل ۱۰۰٪</span>
+            <span><i class="fas fa-parking"></i> پارکینگ اختصاصی</span>
           </div>
         </div>
       </div>
 
-      <!-- نوار پایانی کپی‌رایت -->
-      <div class="footer-bottom">
-        <p class="copyright">
-          تمامی حقوق مادی و معنوی برای <strong>سالن زیبایی رز بیوتی</strong> محفوظ است © ۲۰۲۶
-        </p>
-        <p class="developer-tag">
-          سیستم مدیریت نوبت‌دهی و پیشخوان هوشمند رز بیوتی
-        </p>
+      <!-- کپی‌رایت داخلی -->
+      <div class="footer-bottom-meta">
+        <span>تمامی حقوق برای <strong>سالن زیبایی رز بیوتی</strong> محفوظ است © ۲۰۲۶</span>
+      </div>
+
+      <!-- زبانه برش‌خورده پایین وسط فوتر (الهام از باکس Inisial_han پوستر مرجع) -->
+      <div class="footer-center-notch-wrap">
+        <div class="notch-fillet-left"></div>
+        <div class="footer-center-notch-pill">
+          <span class="notch-circle-seal">
+            <i class="fas fa-spa"></i>
+          </span>
+          <div class="notch-text-col">
+            <strong class="editorial-serif">Rose_Beauty</strong>
+            <small>سالن تخصصی و پیشخوان هوشمند زیبایی</small>
+          </div>
+        </div>
+        <div class="notch-fillet-right"></div>
       </div>
     </div>
   </footer>
@@ -152,335 +147,365 @@ export default {
 </script>
 
 <style scoped>
-.site-footer {
-  margin-top: auto;
-  background: linear-gradient(180deg, rgba(16, 12, 34, 0.95) 0%, #06040e 100%);
-  border-top: 1px solid rgba(255, 45, 149, 0.2);
-  color: #d1c4ce;
+.editorial-footer-wrapper {
+  padding: 2rem clamp(1rem, 2.5vw, 2.5rem) 4.2rem;
   position: relative;
   z-index: 10;
-  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.5);
-  overflow: hidden;
 }
 
-.footer-top-accent {
-  width: 100%;
-  height: 2px;
-  background: linear-gradient(90deg, transparent, #ff2d95, #ff6b9d, #e33d90, transparent);
-  box-shadow: 0 0 16px rgba(255, 45, 149, 0.6);
-}
-
-.footer-container {
-  max-width: 1300px;
-  margin: 0 auto;
-  padding: 3rem 20px 1.5rem;
+.editorial-footer-block {
+  position: relative;
+  background: linear-gradient(145deg, #5d1c3a 0%, #4b142e 55%, #3d0e24 100%);
+  border-radius: 28px;
+  padding: 2.5rem 2.2rem 2.6rem;
+  color: #fff8fb;
+  box-shadow: 0 20px 46px rgba(61, 14, 36, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .footer-grid {
   display: grid;
-  grid-template-columns: 1.4fr 1fr 1.2fr 1.2fr;
-  gap: 2.5rem;
-  margin-bottom: 2.5rem;
+  grid-template-columns: 1.35fr 1fr 1.15fr 1.15fr;
+  gap: 1.5rem;
+  align-items: stretch;
 }
 
-.footer-col {
+.footer-brand-col {
   display: flex;
   flex-direction: column;
+  gap: 1rem;
 }
 
-.footer-brand {
+.footer-brand-header {
   display: flex;
   align-items: center;
   gap: 0.8rem;
-  margin-bottom: 1rem;
 }
 
-.brand-icon {
+.brand-emblem-sq {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: linear-gradient(135deg, #ff2d95, #ff6b9d);
+  background: #faf3f6;
+  color: #561935;
   display: flex;
   align-items: center;
   justify-content: center;
   font-size: 1.3rem;
-  color: #fff;
-  box-shadow: 0 4px 15px rgba(255, 45, 149, 0.4);
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.2);
 }
 
-.brand-text h3 {
-  font-size: 1.35rem;
+.footer-brand-title {
+  color: #ffffff;
+  font-size: 1.3rem;
   font-weight: 800;
-  color: #fff;
   margin: 0;
-  letter-spacing: 0.5px;
 }
 
-.brand-text small {
-  color: #ff6b9d;
-  font-size: 0.75rem;
-  font-weight: 500;
-  letter-spacing: 1px;
+.footer-brand-en {
+  color: #f8b4cf;
+  font-size: 0.72rem;
+  letter-spacing: 1.5px;
+  font-weight: 700;
+}
+
+.footer-cream-box,
+.footer-cream-card {
+  background: #faf3f6;
+  color: #330d1e;
+  border-radius: 20px;
+  padding: 1.35rem;
+  border: 1.5px solid #e6cfd9;
+  box-shadow: 0 10px 26px rgba(32, 6, 18, 0.18);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .brand-desc {
-  font-size: 0.88rem;
-  line-height: 1.8;
-  color: #bfa9b8;
-  margin-bottom: 1.5rem;
-  text-align: justify;
+  font-size: 0.86rem;
+  line-height: 1.75;
+  color: #4f1d34;
+  margin-bottom: 1rem;
+}
+
+.footer-cta-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+}
+
+.footer-pill-cta {
+  background: #561935;
+  color: #ffffff;
+  padding: 0.5rem 1.35rem;
+  border-radius: 9999px;
+  font-size: 0.85rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition: all 0.22s ease;
+  box-shadow: 0 4px 14px rgba(86, 25, 53, 0.3);
+}
+.footer-pill-cta:hover {
+  background: #d84782;
+  transform: translateY(-2px);
 }
 
 .social-links {
   display: flex;
-  gap: 0.75rem;
+  gap: 0.45rem;
 }
 
-.social-btn {
-  width: 38px;
-  height: 38px;
-  border-radius: 10px;
-  background: rgba(255, 255, 255, 0.05);
-  border: 1px solid rgba(255, 45, 149, 0.2);
-  color: #f0e6ee;
+.social-sq-btn {
+  width: 34px;
+  height: 34px;
+  border-radius: 9px;
+  background: #f0e0e7;
+  color: #561935;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: 1rem;
-  transition: all 0.3s cubic-bezier(0.2, 0.8, 0.2, 1);
   text-decoration: none;
+  font-size: 0.92rem;
+  transition: all 0.22s ease;
+}
+.social-sq-btn:hover {
+  background: #561935;
+  color: #ffffff;
+  transform: translateY(-2px);
 }
 
-.social-btn:hover {
-  background: linear-gradient(135deg, #ff2d95, #ff6b9d);
-  color: #fff;
-  transform: translateY(-3px);
-  box-shadow: 0 6px 18px rgba(255, 45, 149, 0.4);
-  border-color: transparent;
-}
-
-.col-title {
-  font-size: 1.08rem;
+.footer-stamp-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: rgba(255, 255, 255, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  padding: 0.45rem 1rem;
+  border-radius: 9999px;
+  font-size: 0.72rem;
   font-weight: 700;
-  color: #ff6b9d;
-  margin-bottom: 1.2rem;
-  position: relative;
-  padding-bottom: 0.5rem;
+  color: #ffdbe9;
+  letter-spacing: 0.8px;
+  width: fit-content;
 }
 
-.col-title::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  right: 0;
-  width: 36px;
-  height: 2px;
-  background: #ff2d95;
-  border-radius: 2px;
+.card-col-title {
+  font-size: 1.02rem;
+  font-weight: 800;
+  color: #561935;
+  margin-bottom: 0.9rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1.5px solid #ead4de;
 }
 
 .footer-links {
   list-style: none;
-  padding: 0;
-  margin: 0;
   display: flex;
   flex-direction: column;
-  gap: 0.65rem;
+  gap: 0.5rem;
+  flex: 1;
 }
 
 .footer-links a {
-  color: #d1c4ce;
+  color: #4f1d34;
   text-decoration: none;
-  font-size: 0.9rem;
-  transition: all 0.25s;
+  font-size: 0.86rem;
+  font-weight: 600;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.45rem;
+  transition: all 0.2s;
 }
-
 .footer-links a i {
   font-size: 0.7rem;
-  color: #ff2d95;
-  transition: transform 0.25s;
+  color: #d84782;
 }
-
 .footer-links a:hover {
-  color: #ff6b9d;
-  transform: translateX(-4px);
-}
-
-.footer-links a:hover i {
-  color: #fff;
+  color: #d84782;
+  transform: translateX(-3px);
 }
 
 .schedule-list {
   list-style: none;
-  padding: 0;
-  margin: 0 0 1.2rem 0;
   display: flex;
   flex-direction: column;
-  gap: 0.75rem;
+  gap: 0.65rem;
 }
-
 .schedule-list li {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 0.86rem;
+  font-size: 0.82rem;
+  color: #4f1d34;
   gap: 0.5rem;
 }
-
-.schedule-list .day {
-  color: #d8c9d4;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.4rem;
-}
-
 .schedule-list .day i {
-  color: #ff6b9d;
-}
-
-.schedule-list .hours {
-  font-size: 0.72rem;
-  padding: 0.25rem 0.6rem;
+  color: #d84782;
+  margin-left: 3px;
 }
 
 .call-banner {
-  background: rgba(255, 45, 149, 0.08);
-  border: 1px dashed rgba(255, 45, 149, 0.35);
+  margin-top: 0.9rem;
+  background: #f0e0e7;
   border-radius: 12px;
-  padding: 0.8rem 1rem;
+  padding: 0.7rem 0.9rem;
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  margin-top: auto;
+  gap: 0.7rem;
 }
-
 .call-banner i {
-  font-size: 1.6rem;
-  color: #ff6b9d;
+  font-size: 1.2rem;
+  color: #561935;
 }
-
 .banner-label {
   display: block;
-  font-size: 0.78rem;
-  color: #e5d6e1;
+  font-size: 0.72rem;
+  color: #754c5e;
 }
-
 .banner-phone {
-  display: block;
-  font-size: 1rem;
-  font-weight: 700;
-  color: #ff6b9d;
+  font-size: 0.95rem;
+  font-weight: 800;
+  color: #561935;
   text-decoration: none;
-  direction: ltr;
-  text-align: right;
-  letter-spacing: 0.5px;
-}
-
-.banner-phone:hover {
-  color: #fff;
-}
-
-.contact-info {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 1.2rem 0;
-  display: flex;
-  flex-direction: column;
-  gap: 0.85rem;
-}
-
-.contact-info li {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.7rem;
-  font-size: 0.88rem;
-  line-height: 1.6;
-}
-
-.contact-icon {
-  color: #ff6b9d;
-  font-size: 1rem;
-  margin-top: 0.25rem;
-  flex-shrink: 0;
-}
-
-.contact-info a {
-  color: #ff6b9d;
-  text-decoration: none;
-  font-weight: 600;
   direction: ltr;
   display: inline-block;
 }
 
-.contact-info a:hover {
-  text-decoration: underline;
-  color: #fff;
+.contact-info {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  flex: 1;
+}
+.contact-info li {
+  display: flex;
+  align-items: flex-start;
+  gap: 0.55rem;
+  font-size: 0.83rem;
+  color: #4f1d34;
+  line-height: 1.55;
+}
+.contact-icon {
+  color: #d84782;
+  margin-top: 3px;
+  flex-shrink: 0;
+}
+.contact-info a {
+  color: #561935;
+  font-weight: 700;
+  text-decoration: none;
 }
 
 .features-pill {
+  margin-top: 0.85rem;
   display: flex;
-  flex-wrap: wrap;
   gap: 0.5rem;
-  font-size: 0.75rem;
+  flex-wrap: wrap;
 }
-
 .features-pill span {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  padding: 0.35rem 0.65rem;
-  border-radius: 20px;
-  color: #d1c4ce;
+  font-size: 0.74rem;
+  font-weight: 700;
+  background: #f0e0e7;
+  color: #330d1e;
+  padding: 0.25rem 0.65rem;
+  border-radius: 9999px;
   display: inline-flex;
   align-items: center;
-  gap: 0.35rem;
+  gap: 0.3rem;
 }
 
-.text-success { color: #10b981; }
-.text-info { color: #38bdf8; }
+.footer-bottom-meta {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.14);
+  text-align: center;
+  font-size: 0.8rem;
+  color: #f4d8e4;
+}
 
-.footer-bottom {
-  border-top: 1px solid rgba(255, 255, 255, 0.07);
-  padding-top: 1.5rem;
+/* زبانه برش‌خورده پایین وسط فوتر (تطبیق با Inisial_han پوستر مرجع) */
+.footer-center-notch-wrap {
+  position: absolute;
+  bottom: -48px;
+  left: 50%;
+  transform: translateX(-50%);
   display: flex;
-  justify-content: space-between;
+  align-items: flex-start;
+  z-index: 6;
+}
+
+.footer-center-notch-pill {
+  height: 48px;
+  background: #3d0e24;
+  padding: 0 22px;
+  border-bottom-left-radius: 22px;
+  border-bottom-right-radius: 22px;
+  display: inline-flex;
   align-items: center;
-  flex-wrap: wrap;
-  gap: 1rem;
-  font-size: 0.83rem;
-  color: #9f8c9a;
+  gap: 10px;
+  color: #ffffff;
+  box-shadow: 0 12px 26px rgba(61, 14, 36, 0.28);
+  white-space: nowrap;
 }
 
-.copyright strong {
-  color: #f0e6ee;
+.notch-circle-seal {
+  width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background: #d84782;
+  color: #ffffff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 0.78rem;
 }
 
-.developer-tag {
-  color: #ff6b9d;
-  font-weight: 500;
+.notch-text-col {
+  display: flex;
+  flex-direction: column;
+  line-height: 1.15;
+}
+.notch-text-col strong {
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+.notch-text-col small {
+  font-size: 0.65rem;
+  color: #f8b4cf;
 }
 
-@media (max-width: 1024px) {
+.notch-fillet-left {
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(circle at top left, transparent 21.5px, #3d0e24 22px);
+}
+.notch-fillet-right {
+  width: 22px;
+  height: 22px;
+  background: radial-gradient(circle at top right, transparent 21.5px, #3d0e24 22px);
+}
+
+@media (max-width: 1100px) {
   .footer-grid {
     grid-template-columns: repeat(2, 1fr);
-    gap: 2rem;
   }
 }
 
-@media (max-width: 640px) {
-  .footer-container {
-    padding: 2.5rem 14px 1.5rem;
+@media (max-width: 680px) {
+  .editorial-footer-block {
+    padding: 1.5rem 1.1rem 2rem;
+    border-radius: 22px;
   }
   .footer-grid {
     grid-template-columns: 1fr;
-    gap: 2rem;
+    gap: 1.1rem;
   }
-  .footer-bottom {
-    flex-direction: column;
-    text-align: center;
-    gap: 0.5rem;
+  .footer-center-notch-pill {
+    padding: 0 16px;
   }
 }
 </style>

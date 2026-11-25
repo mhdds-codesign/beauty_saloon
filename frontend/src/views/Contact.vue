@@ -1,144 +1,147 @@
 <template>
   <div class="contact-page">
-    <!-- هدر یکپارچه و مشترک -->
     <PublicHeader />
 
-    <!-- بخش هیرو صفحه تماس -->
-    <section class="contact-hero">
-      <div class="hero-inner">
-        <div class="hero-badge">
-          <i class="fas fa-map-marked-alt"></i> راه‌های ارتباطی مستقیم و دسترسی به سالن
+    <div class="editorial-contact-flow">
+      <!-- بلوک ۱: هیرو تماس با ما با کارت کرم و تصویر سالن -->
+      <section class="contact-hero-block rose-master-block">
+        <div class="contact-hero-grid">
+          <div class="hero-left-col">
+            <span class="hero-kicker">C O N T A C T &nbsp; U S</span>
+            <h1 class="hero-serif-title editorial-serif">GET IN TOUCH</h1>
+            <p class="hero-fa-sub">( پل‌های ارتباطی مستقیم، نشانی و مشاوره تخصصی سالن رز بیوتی )</p>
+
+            <div class="hero-quick-pills">
+              <a href="tel:05137654321" class="quick-pill-badge">
+                <i class="fas fa-phone-alt"></i> ۰۵۱-۳۷۶۵۴۳۲۱
+              </a>
+              <a href="tel:09123456789" class="quick-pill-badge">
+                <i class="fas fa-mobile-alt"></i> ۰۹۱۲۳۴۵۶۷۸۹
+              </a>
+              <a href="https://instagram.com" target="_blank" rel="noopener" class="quick-pill-badge">
+                <i class="fab fa-instagram"></i> @rose_beauty_salon
+              </a>
+            </div>
+          </div>
+
+          <div class="hero-right-photo cream-inset-card">
+            <div class="photo-inner-box">
+              <img src="/images/makeup_tools.jpg" alt="پذیرش و مشاوره زیبایی رز بیوتی" />
+            </div>
+            <div class="photo-footer-row">
+              <span>مشهد، بلوار سجاد، ساختمان رز، طبقه ۳</span>
+              <a href="tel:09123456789" class="corner-arrow-badge" title="تماس فوری">
+                <i class="fas fa-phone"></i>
+              </a>
+            </div>
+          </div>
         </div>
-        <h1 class="hero-title">
-          تماس با سالن زیبایی <span class="highlight-text">رز بیوتی</span>
-        </h1>
-        <p class="hero-lead">
-          همواره مشتاق دیدار و پاسخگویی به شما مراجعین عزیز هستیم. جهت مشاوره رایگان، استعلام پکیج‌های عروس یا هماهنگی نوبت‌ها با ما در ارتباط باشید.
-        </p>
-      </div>
-    </section>
+      </section>
 
-    <!-- کانتینر اصلی محتوا -->
-    <main class="contact-main-container">
-      <div class="contact-two-col">
-        <!-- ستون ۱: کارت‌های اطلاعات تماس و لوکیشن -->
-        <div class="contact-info-panel">
-          <div class="info-master-card">
-            <h2 class="card-main-title"><i class="fas fa-address-book"></i> اطلاعات دسترسی و تماس</h2>
-            <p class="card-main-desc">کلیه راه‌های ارتباطی با مدیریت و بخش پذیرش سالن رز بیوتی:</p>
+      <!-- بلوک ۲: اطلاعات دسترسی و فرم پیام سریع داخل کادر مستطیلی رز -->
+      <section class="contact-body-section">
+        <div class="rose-master-block contact-master-box">
+          <div class="contact-two-col">
+            <!-- ستون اطلاعات تماس و لوکیشن -->
+            <div class="contact-info-card cream-inset-card">
+              <h2 class="card-heading"><i class="fas fa-address-book"></i> اطلاعات دسترسی و نشانی</h2>
+              <p class="card-sub">همواره مشتاق دیدار و پاسخگویی به سوالات شما مراجعین عزیز هستیم:</p>
 
-            <div class="contact-items-list">
-              <div class="c-item">
-                <div class="c-icon"><i class="fas fa-map-pin"></i></div>
-                <div class="c-details">
-                  <strong>آدرس سالن زیبایی رز بیوتی:</strong>
-                  <p>مشهد، بلوار سجاد، بین بهار و گلستان، ساختمان رز، طبقه ۳، واحد ۶</p>
-                  <small class="route-hint">دسترسی سرراست از بزرگراه کلانتری و خیابان بهارستان</small>
+              <div class="info-list">
+                <div class="info-row">
+                  <span class="row-sq-icon"><i class="fas fa-map-pin"></i></span>
+                  <div>
+                    <strong>آدرس سالن زیبایی رز بیوتی:</strong>
+                    <p>مشهد، بلوار سجاد، بین بهار و گلستان، ساختمان رز، طبقه ۳، واحد ۶</p>
+                    <small class="hint-text">دسترسی مستقیم از بزرگراه کلانتری و خیابان بهارستان</small>
+                  </div>
+                </div>
+
+                <div class="info-row">
+                  <span class="row-sq-icon"><i class="fas fa-phone-volume"></i></span>
+                  <div>
+                    <strong>تلفن‌های تماس مستقیم:</strong>
+                    <p class="phones">
+                      <a href="tel:05137654321">۰۵۱-۳۷۶۵۴۳۲۱</a> <small>(خط ثابت)</small><br>
+                      <a href="tel:09123456789">۰۹۱۲۳۴۵۶۷۸۹</a> <small>(همراه و رزرو فوری)</small>
+                    </p>
+                  </div>
+                </div>
+
+                <div class="info-row">
+                  <span class="row-sq-icon"><i class="fab fa-instagram"></i></span>
+                  <div>
+                    <strong>اینستاگرام رسمی (ژورنال کارها):</strong>
+                    <p><a href="https://instagram.com" target="_blank" rel="noopener">instagram.com/rose_beauty_salon</a></p>
+                  </div>
+                </div>
+
+                <div class="info-row">
+                  <span class="row-sq-icon"><i class="fas fa-envelope"></i></span>
+                  <div>
+                    <strong>پست الکترونیک:</strong>
+                    <p><a href="mailto:contact@rosebeauty.ir">contact@rosebeauty.ir</a></p>
+                  </div>
                 </div>
               </div>
 
-              <div class="c-item">
-                <div class="c-icon"><i class="fas fa-phone-volume"></i></div>
-                <div class="c-details">
-                  <strong>تلفن‌های تماس مستقیم:</strong>
-                  <p class="phone-links">
-                    <a href="tel:05137654321">۰۵۱-۳۷۶۵۴۳۲۱</a> <span>(خط مستقیم سالن)</span><br>
-                    <a href="tel:09123456789">۰۹۱۲۳۴۵۶۷۸۹</a> <span>(مشاوره و رزرو فوری)</span>
-                  </p>
-                </div>
+              <div class="parking-strip">
+                <i class="fas fa-parking"></i>
+                <span>دارای پارکینگ اختصاصی ساختمان رز و فضای پارک امن در بلوار سجاد</span>
               </div>
 
-              <div class="c-item">
-                <div class="c-icon"><i class="fab fa-instagram"></i></div>
-                <div class="c-details">
-                  <strong>اینستاگرام (ژورنال و استوری‌های روزانه):</strong>
-                  <p>
-                    <a href="https://instagram.com" target="_blank" rel="noopener" class="insta-link">
-                      instagram.com/rose_beauty_salon
-                    </a>
-                  </p>
-                  <small>مشاهده نمونه‌کارهای جدید و رضایت مراجعین</small>
-                </div>
-              </div>
-
-              <div class="c-item">
-                <div class="c-icon"><i class="fas fa-envelope"></i></div>
-                <div class="c-details">
-                  <strong>پست الکترونیک رسمی:</strong>
-                  <p><a href="mailto:contact@rosebeauty.ir">contact@rosebeauty.ir</a></p>
-                </div>
-              </div>
-            </div>
-
-            <!-- وضعیت پارکینگ -->
-            <div class="parking-callout">
-              <i class="fas fa-parking"></i>
-              <div>
-                <strong>فضای پارک مناسب خودرو:</strong>
-                <p>امکان استفاده از پارکینگ اختصاصی ساختمان رز و حاشیه بلوار سجاد با امنیت کامل.</p>
-              </div>
-            </div>
-
-            <!-- راهنمای حمل‌ونقل عمومی -->
-            <div class="transit-guide-box">
-              <div class="transit-header">
+              <div class="transit-strip">
                 <i class="fas fa-subway"></i>
-                <span>راهنمای دسترسی با حمل‌ونقل عمومی در مشهد:</span>
+                <span>نزدیک‌ترین ایستگاه مترو: ایستگاه‌های خیام و آزادی (خط ۱) با تاکسی مستقیم به بلوار سجاد</span>
               </div>
-              <p>نزدیک‌ترین ایستگاه قطار شهری: ایستگاه‌های خیام و آزادی (خط ۱ متروی مشهد) با دسترسی مستقیم خطوط تاکسی به بلوار سجاد.</p>
+            </div>
+
+            <!-- ستون فرم پیام و مشاوره -->
+            <div class="contact-form-card cream-inset-card">
+              <div class="form-corner-badge corner-arrow-badge">
+                <i class="fas fa-paper-plane"></i>
+              </div>
+              <h2 class="card-heading"><i class="fas fa-comments"></i> ارسال پیام یا درخواست مشاوره</h2>
+              <p class="card-sub">فرم زیر را تکمیل فرمایید؛ کارشناسان ما در کوتاه‌ترین زمان با شما تماس می‌گیرند.</p>
+
+              <form @submit.prevent="submitContact">
+                <div class="form-group">
+                  <label>نام و نام خانوادگی <span class="text-danger">*</span></label>
+                  <input v-model="form.name" type="text" required placeholder="مثال: سارا محمدی" />
+                </div>
+
+                <div class="form-group">
+                  <label>شماره تماس همراه <span class="text-danger">*</span></label>
+                  <input v-model="form.phone" type="tel" required placeholder="۰۹۱۲۳۴۵۶۷۸۹" />
+                </div>
+
+                <div class="form-group">
+                  <label>لاین و سرویس مورد نظر</label>
+                  <select v-model="form.service">
+                    <option value="">انتخاب لاین (اختیاری)</option>
+                    <option value="ناخن">کاشت، لمینت و طراحی ناخن</option>
+                    <option value="مو">رنگ، لایت و کراتین مو</option>
+                    <option value="پوست">فیشیال و جوانسازی پوست</option>
+                    <option value="میکاپ">میکاپ عروس و گریم حرفه‌ای</option>
+                    <option value="ابرو">لیفت و اصلاح ابرو و مژه</option>
+                  </select>
+                </div>
+
+                <div class="form-group">
+                  <label>متن پیام یا سوال شما <span class="text-danger">*</span></label>
+                  <textarea v-model="form.message" rows="4" required placeholder="پیام خود را بنویسید..."></textarea>
+                </div>
+
+                <button type="submit" class="btn btn-primary submit-full-btn" :disabled="submitted">
+                  <i :class="submitted ? 'fas fa-check' : 'fas fa-paper-plane'"></i>
+                  {{ submitted ? 'پیام شما با موفقیت ثبت شد' : 'ارسال درخواست مشاوره' }}
+                </button>
+              </form>
             </div>
           </div>
         </div>
-
-        <!-- ستون ۲: فرم ارسال پیام و درخواست مشاوره -->
-        <div class="contact-form-panel">
-          <div class="form-master-card">
-            <h2 class="card-main-title"><i class="fas fa-paper-plane"></i> ارسال پیام یا درخواست مشاوره</h2>
-            <p class="card-main-desc">اطلاعات خود را در فرم زیر وارد فرمایید؛ کارشناسان سالن در سریع‌ترین زمان با شما تماس خواهند گرفت.</p>
-
-            <form @submit.prevent="submitContact">
-              <div class="form-group">
-                <label>نام و نام خانوادگی <span class="req">*</span></label>
-                <input v-model="form.name" type="text" required placeholder="مثال: سارا محمدی" />
-              </div>
-
-              <div class="form-group">
-                <label>شماره تماس همراه <span class="req">*</span></label>
-                <input v-model="form.phone" type="tel" required placeholder="۰۹۱۲۳۴۵۶۷۸۹" />
-              </div>
-
-              <div class="form-group">
-                <label>لاین و سرویس مورد نظر</label>
-                <select v-model="form.service">
-                  <option value="">انتخاب لاین (اختیاری)</option>
-                  <option value="ناخن">کاشت، لمینت و طراحی ناخن</option>
-                  <option value="مو">رنگ، لایت و کراتین مو</option>
-                  <option value="پوست">فیشیال و جوانسازی پوست</option>
-                  <option value="میکاپ">میکاپ عروس و گریم حرفه‌ای</option>
-                  <option value="ابرو">لیفت و اصلاح ابرو و مژه</option>
-                  <option value="سایر">سایر موارد و استعلام قیمت</option>
-                </select>
-              </div>
-
-              <div class="form-group">
-                <label>متن پیام یا سوال شما <span class="req">*</span></label>
-                <textarea v-model="form.message" rows="4" required placeholder="پیام خود را بنویسید..."></textarea>
-              </div>
-
-              <button type="submit" class="btn btn-primary submit-btn" :disabled="submitted">
-                <i :class="submitted ? 'fas fa-check' : 'fas fa-paper-plane'"></i>
-                {{ submitted ? 'پیام شما دریافت شد' : 'ارسال درخواست مشاوره' }}
-              </button>
-            </form>
-
-            <div class="form-privacy-note">
-              <i class="fas fa-lock"></i>
-              <span>اطلاعات تماس شما نزد سالن رز بیوتی کاملاً محرمانه نگهداری می‌شود.</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
+      </section>
+    </div>
   </div>
 </template>
 
@@ -189,248 +192,225 @@ export default {
 <style scoped>
 .contact-page {
   direction: rtl;
-  min-height: 100vh;
-  color: #f0e6ee;
-  background: #0a0818;
-  font-family: 'Vazirmatn', sans-serif;
-  padding-top: 75px;
+  padding-top: 86px;
+  padding-bottom: 1rem;
 }
 
-/* هیرو تماس */
-.contact-hero {
-  padding: 5rem clamp(1rem, 3vw, 2.5rem) 4rem;
-  text-align: center;
-  background: radial-gradient(ellipse 75% 65% at 50% 25%, rgba(255, 45, 149, 0.18), transparent 75%);
-  border-bottom: 1px solid rgba(255, 45, 149, 0.15);
+.editorial-contact-flow {
+  width: 100%;
+  padding: 0 clamp(1rem, 2.5vw, 2.5rem);
+  display: flex;
+  flex-direction: column;
+  gap: 2.6rem;
 }
 
-.hero-inner {
-  max-width: 900px;
-  margin: 0 auto;
+.contact-hero-block {
+  padding: 2.5rem clamp(1.2rem, 3vw, 2.6rem);
 }
 
-.hero-badge {
+.contact-hero-grid {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+  gap: 2rem;
+  align-items: center;
+  position: relative;
+  z-index: 2;
+}
+
+.hero-kicker {
+  display: block;
+  font-size: 0.82rem;
+  letter-spacing: 4px;
+  color: #f8b4cf;
+  font-weight: 700;
+  margin-bottom: 0.35rem;
+}
+
+.hero-serif-title {
+  font-size: clamp(2.1rem, 4.5vw, 3.4rem);
+  font-weight: 900;
+  color: #ffffff;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.hero-fa-sub {
+  color: #fce2ec;
+  font-size: 0.96rem;
+  margin: 0.6rem 0 1.5rem;
+}
+
+.hero-quick-pills {
+  display: flex;
+  gap: 0.7rem;
+  flex-wrap: wrap;
+}
+
+.quick-pill-badge {
+  background: #faf3f6;
+  color: #350e20;
+  padding: 0.5rem 1.1rem;
+  border-radius: 12px;
+  text-decoration: none;
+  font-size: 0.86rem;
+  font-weight: 800;
   display: inline-flex;
   align-items: center;
-  gap: 0.5rem;
-  background: rgba(255, 45, 149, 0.12);
-  border: 1px solid rgba(255, 45, 149, 0.35);
-  color: #ff85c0;
-  padding: 0.45rem 1.2rem;
-  border-radius: 9999px;
-  font-size: 0.88rem;
-  font-weight: 700;
-  margin-bottom: 1.4rem;
+  gap: 0.45rem;
+  box-shadow: 0 4px 14px rgba(0, 0, 0, 0.16);
+  transition: all 0.2s;
 }
-
-.hero-title {
-  font-size: 2.5rem;
-  font-weight: 900;
+.quick-pill-badge i {
+  color: #d84782;
+}
+.quick-pill-badge:hover {
+  background: #d84782;
   color: #fff;
-  margin-bottom: 1.2rem;
-  line-height: 1.35;
+  transform: translateY(-2px);
+}
+.quick-pill-badge:hover i {
+  color: #fff;
 }
 
-.highlight-text {
-  color: #ff2d95;
-  text-shadow: 0 0 25px rgba(255, 45, 149, 0.5);
+.hero-right-photo {
+  padding: 0.95rem;
 }
-
-.hero-lead {
-  font-size: 1.08rem;
-  line-height: 1.85;
-  color: #e0d0dd;
+.photo-inner-box {
+  background: #561935;
+  padding: 7px;
+  border-radius: 16px;
+  height: 190px;
 }
-
-/* محتوای اصلی تماس */
-.contact-main-container {
+.photo-inner-box img {
   width: 100%;
-  padding: 3.5rem clamp(1rem, 3vw, 2.5rem);
+  height: 100%;
+  object-fit: cover;
+  border-radius: 11px;
+}
+.photo-footer-row {
+  margin-top: 0.8rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+  font-size: 0.84rem;
+  font-weight: 700;
+  color: #350e20;
+}
+
+/* بدنه تماس */
+.contact-master-box {
+  padding: 2.4rem clamp(1.2rem, 3vw, 2.6rem);
 }
 
 .contact-two-col {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  gap: 2.5rem;
-  align-items: flex-start;
+  gap: 2rem;
+  position: relative;
+  z-index: 2;
 }
 
-.info-master-card,
-.form-master-card {
-  background: rgba(20, 14, 30, 0.85);
-  border: 1px solid rgba(255, 45, 149, 0.2);
-  border-radius: 24px;
-  padding: 2.8rem;
-  box-shadow: 0 15px 40px rgba(0, 0, 0, 0.6);
-  backdrop-filter: blur(10px);
+.contact-info-card,
+.contact-form-card {
+  padding: 2rem;
+  position: relative;
 }
 
-.card-main-title {
-  font-size: 1.4rem;
+.form-corner-badge {
+  position: absolute;
+  top: -14px;
+  left: 24px;
+}
+
+.card-heading {
+  font-size: 1.25rem;
   font-weight: 800;
-  color: #fff;
   margin-bottom: 0.4rem;
-  display: flex;
-  align-items: center;
-  gap: 0.6rem;
+}
+.card-sub {
+  font-size: 0.88rem;
+  color: #7a5163;
+  margin-bottom: 1.6rem;
 }
 
-.card-main-title i {
-  color: #ff6b9d;
-}
-
-.card-main-desc {
-  font-size: 0.92rem;
-  color: #baa9b7;
-  margin-bottom: 2rem;
-}
-
-.contact-items-list {
+.info-list {
   display: flex;
   flex-direction: column;
-  gap: 1.8rem;
-  margin-bottom: 2rem;
+  gap: 1.3rem;
+  margin-bottom: 1.5rem;
 }
 
-.c-item {
+.info-row {
   display: flex;
-  gap: 1.1rem;
+  gap: 0.95rem;
   align-items: flex-start;
 }
 
-.c-icon {
-  width: 46px;
-  height: 46px;
-  border-radius: 12px;
-  background: rgba(255, 45, 149, 0.15);
-  border: 1px solid rgba(255, 45, 149, 0.25);
+.row-sq-icon {
+  width: 42px;
+  height: 42px;
+  border-radius: 11px;
+  background: #561935;
+  color: #ffffff;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #ff6b9d;
-  font-size: 1.25rem;
+  font-size: 1.1rem;
   flex-shrink: 0;
 }
 
-.c-details strong {
+.info-row strong {
   display: block;
-  font-size: 0.95rem;
-  color: #fff;
-  margin-bottom: 0.3rem;
-}
-
-.c-details p {
-  color: #e0d0dd;
   font-size: 0.92rem;
-  line-height: 1.6;
+  color: #350e20;
+  margin-bottom: 0.2rem;
+}
+.info-row p {
+  font-size: 0.88rem;
+  color: #58283e;
   margin: 0;
+  line-height: 1.6;
 }
-
-.phone-links a {
-  color: #ff85c0;
+.info-row a {
+  color: #561935;
+  font-weight: 800;
   text-decoration: none;
-  font-weight: 700;
-  direction: ltr;
-  display: inline-block;
-  font-size: 1.05rem;
 }
-
-.phone-links span {
-  font-size: 0.8rem;
-  color: #baa9b7;
+.info-row a:hover {
+  color: #d84782;
 }
-
-.insta-link {
-  color: #ff85c0;
-  text-decoration: none;
-  font-weight: 700;
-}
-
-.route-hint {
-  color: #ff85c0;
-  font-size: 0.78rem;
+.hint-text {
   display: block;
+  font-size: 0.76rem;
+  color: #d84782;
   margin-top: 0.2rem;
 }
 
-.parking-callout {
-  background: rgba(16, 185, 129, 0.08);
-  border: 1px solid rgba(16, 185, 129, 0.25);
-  border-radius: 14px;
-  padding: 1rem 1.2rem;
+.parking-strip,
+.transit-strip {
+  background: #f0e0e7;
+  border-radius: 12px;
+  padding: 0.85rem 1rem;
   display: flex;
   align-items: center;
-  gap: 0.9rem;
-  margin-bottom: 1.4rem;
-}
-
-.parking-callout i {
-  font-size: 1.6rem;
-  color: #10b981;
-}
-
-.parking-callout strong {
-  display: block;
-  font-size: 0.9rem;
-  color: #fff;
-}
-
-.parking-callout p {
+  gap: 0.7rem;
   font-size: 0.82rem;
-  color: #baa9b7;
-  margin: 0;
+  color: #350e20;
+  font-weight: 600;
+  margin-bottom: 0.75rem;
 }
+.parking-strip i { color: #059669; font-size: 1.15rem; }
+.transit-strip i { color: #561935; font-size: 1.15rem; }
 
-.transit-guide-box {
-  background: rgba(255, 255, 255, 0.03);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  border-radius: 14px;
-  padding: 1.2rem;
-  font-size: 0.88rem;
-}
-
-.transit-header {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  color: #ff6b9d;
-  font-weight: 700;
-  margin-bottom: 0.4rem;
-}
-
-.transit-guide-box p {
-  color: #baa9b7;
-  margin: 0;
-  line-height: 1.6;
-}
-
-/* فرم */
-.form-group {
-  margin-bottom: 1.2rem;
-}
-
-.req {
-  color: #ff3b3b;
-}
-
-.submit-btn {
+.submit-full-btn {
   width: 100%;
-  padding: 0.9rem;
-  font-size: 0.95rem;
-  margin-top: 0.5rem;
-}
-
-.form-privacy-note {
-  margin-top: 1.2rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.5rem;
-  font-size: 0.75rem;
-  color: #9f8c9a;
+  margin: 0.4rem 0 0 !important;
+  padding: 0.85rem;
 }
 
 @media (max-width: 900px) {
+  .contact-hero-grid,
   .contact-two-col {
     grid-template-columns: 1fr;
   }

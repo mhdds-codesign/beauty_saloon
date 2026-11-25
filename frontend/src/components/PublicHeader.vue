@@ -1,100 +1,95 @@
 <template>
   <header class="public-site-header" :class="{ 'scrolled': isScrolled }">
-    <div class="header-inner-container">
-      <!-- لوگو و برند سالن -->
-      <router-link to="/" class="brand-link" @click="handleNav('/')">
-        <span class="brand-logo-icon">
-          <i class="fas fa-spa"></i>
-        </span>
-        <div class="brand-title-wrap">
-          <span class="brand-name">رز بیوتی</span>
-          <span class="brand-subtitle">Rose Beauty Salon</span>
-        </div>
-      </router-link>
-
-      <!-- منوی اصلی ناوبری هدر -->
-      <nav class="nav-menu" :class="{ 'active': mobileMenuOpen }">
-        <a 
-          href="/" 
-          class="nav-link" 
-          :class="{ 'active': isRoute('/') && !currentHash }" 
-          @click.prevent="navigate('/')"
-        >
-          <i class="fas fa-home"></i> خانه
-        </a>
-
-        <a 
-          href="/#services" 
-          class="nav-link" 
-          :class="{ 'active': isHash('#services') }" 
-          @click.prevent="navigate('/#services')"
-        >
-          <i class="fas fa-cut"></i> سرویس‌ها و لاین‌ها
-        </a>
-
-        <a 
-          href="/#faq" 
-          class="nav-link" 
-          :class="{ 'active': isHash('#faq') }" 
-          @click.prevent="navigate('/#faq')"
-        >
-          <i class="fas fa-question-circle"></i> سوالات متداول
-        </a>
-
-        <router-link 
-          to="/about" 
-          class="nav-link" 
-          :class="{ 'active': isRoute('/about') }"
-          @click="mobileMenuOpen = false"
-        >
-          <i class="fas fa-heart"></i> درباره ما
+    <div class="header-bar-layout">
+      <!-- کپسول مستطیلی اصلی ناوبری (منطبق با نوار بالای پوستر مرجع) -->
+      <div class="header-main-capsule">
+        <!-- لوگو و برند سالن -->
+        <router-link to="/" class="brand-link" @click="handleNav('/')">
+          <span class="brand-logo-badge">
+            <i class="fas fa-spa"></i>
+          </span>
+          <div class="brand-title-wrap">
+            <span class="brand-name">رز بیوتی</span>
+            <span class="brand-subtitle editorial-serif">ROSE SALON</span>
+          </div>
         </router-link>
 
-        <router-link 
-          to="/contact" 
-          class="nav-link" 
-          :class="{ 'active': isRoute('/contact') }"
-          @click="mobileMenuOpen = false"
-        >
-          <i class="fas fa-phone-alt"></i> تماس با ما
-        </router-link>
+        <!-- منوی اصلی ناوبری هدر (فقط لینک‌های تاییدشده) -->
+        <nav class="nav-menu" :class="{ 'active': mobileMenuOpen }">
+          <a
+            href="/"
+            class="nav-link"
+            :class="{ 'active': isRoute('/') && !currentHash }"
+            @click.prevent="navigate('/')"
+          >
+            <i class="fas fa-home"></i> خانه
+          </a>
 
-        <!-- دکمه ورود در منوی موبایل -->
-        <div class="mobile-nav-actions" v-if="mobileMenuOpen">
-          <template v-if="isLoggedIn">
-            <router-link to="/dashboard" class="action-btn action-primary w-full">
-              <i class="fas fa-chart-pie"></i>
-              <span>ورود به داشبورد</span>
-            </router-link>
-          </template>
-          <template v-else>
-            <router-link to="/login" class="action-btn action-outline w-full">
-              <i class="fas fa-sign-in-alt"></i>
-              <span>ورود به حساب</span>
-            </router-link>
-          </template>
-        </div>
-      </nav>
+          <a
+            href="/#services"
+            class="nav-link"
+            :class="{ 'active': isHash('#services') }"
+            @click.prevent="navigate('/#services')"
+          >
+            <i class="fas fa-cut"></i> سرویس‌ها و لاین‌ها
+          </a>
 
-      <!-- دکمه ورود در دسکتاپ (بدون دکمه نوبت‌دهی طبق درخواست) -->
-      <div class="header-actions">
-        <template v-if="isLoggedIn">
-          <router-link to="/dashboard" class="action-btn action-primary">
-            <i class="fas fa-chart-pie"></i>
-            <span>ورود به داشبورد</span>
+          <a
+            href="/#faq"
+            class="nav-link"
+            :class="{ 'active': isHash('#faq') }"
+            @click.prevent="navigate('/#faq')"
+          >
+            <i class="fas fa-question-circle"></i> سوالات متداول
+          </a>
+
+          <router-link
+            to="/about"
+            class="nav-link"
+            :class="{ 'active': isRoute('/about') }"
+            @click="mobileMenuOpen = false"
+          >
+            <i class="fas fa-heart"></i> درباره ما
           </router-link>
-        </template>
-        <template v-else>
-          <router-link to="/login" class="action-btn action-outline">
-            <i class="fas fa-sign-in-alt"></i>
-            <span>ورود به حساب</span>
+
+          <router-link
+            to="/contact"
+            class="nav-link"
+            :class="{ 'active': isRoute('/contact') }"
+            @click="mobileMenuOpen = false"
+          >
+            <i class="fas fa-phone-alt"></i> تماس با ما
           </router-link>
-        </template>
+
+          <!-- دکمه ورود در منوی موبایل -->
+          <div class="mobile-nav-actions" v-if="mobileMenuOpen">
+            <router-link
+              :to="isLoggedIn ? '/dashboard' : '/login'"
+              class="mobile-login-btn"
+              @click="mobileMenuOpen = false"
+            >
+              <i :class="isLoggedIn ? 'fas fa-chart-pie' : 'fas fa-sign-in-alt'"></i>
+              <span>{{ isLoggedIn ? 'ورود به داشبورد' : 'ورود به حساب' }}</span>
+            </router-link>
+          </div>
+        </nav>
 
         <!-- دکمه همبرگری موبایل -->
         <button class="hamburger-btn" @click="mobileMenuOpen = !mobileMenuOpen" aria-label="منو">
           <i :class="mobileMenuOpen ? 'fas fa-times' : 'fas fa-bars'"></i>
         </button>
+      </div>
+
+      <!-- دکمه مستطیلی جداشده ورود در کنار نوار (شبیه باکس ذره‌بین مرجع) -->
+      <div class="header-detached-action">
+        <router-link
+          :to="isLoggedIn ? '/dashboard' : '/login'"
+          class="detached-login-box"
+          :title="isLoggedIn ? 'ورود به داشبورد' : 'ورود به حساب'"
+        >
+          <i :class="isLoggedIn ? 'fas fa-chart-pie' : 'fas fa-sign-in-alt'"></i>
+          <span>{{ isLoggedIn ? 'داشبورد' : 'ورود به حساب' }}</span>
+        </router-link>
       </div>
     </div>
   </header>
@@ -130,7 +125,7 @@ export default {
   },
   methods: {
     handleScroll() {
-      this.isScrolled = window.scrollY > 30
+      this.isScrolled = window.scrollY > 25
     },
     updateHash() {
       this.currentHash = window.location.hash
@@ -152,6 +147,7 @@ export default {
       if (target === '/') {
         if (this.$route.path === '/') {
           window.scrollTo({ top: 0, behavior: 'smooth' })
+          this.currentHash = ''
         } else {
           this.$router.push('/')
         }
@@ -163,7 +159,7 @@ export default {
         if (this.$route.path === '/') {
           const el = document.querySelector(hash)
           if (el) {
-            const yOffset = -70
+            const yOffset = -90
             const y = el.getBoundingClientRect().top + window.pageYOffset + yOffset
             window.scrollTo({ top: y, behavior: 'smooth' })
           }
@@ -184,45 +180,57 @@ export default {
   left: 0;
   right: 0;
   z-index: 999;
-  padding: 1rem 0;
-  transition: all 0.35s cubic-bezier(0.2, 0.8, 0.2, 1);
-  background: rgba(10, 8, 24, 0.7);
-  backdrop-filter: blur(14px);
-  border-bottom: 1px solid rgba(255, 45, 149, 0.15);
+  padding: 0.9rem clamp(1rem, 2.5vw, 2.5rem);
+  transition: all 0.3s ease;
+  pointer-events: none;
 }
 
 .public-site-header.scrolled {
-  padding: 0.65rem 0;
-  background: rgba(8, 6, 20, 0.95);
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.7), 0 0 1px 1px rgba(255, 45, 149, 0.25);
+  padding-top: 0.55rem;
+  padding-bottom: 0.55rem;
 }
 
-.header-inner-container {
+.header-bar-layout {
   width: 100%;
-  padding: 0 clamp(1rem, 3vw, 2.5rem);
   display: flex;
-  justify-content: space-between;
   align-items: center;
+  gap: 12px;
+  pointer-events: auto;
+}
+
+/* کپسول مستطیلی اصلی ناوبری */
+.header-main-capsule {
+  flex: 1;
+  background: linear-gradient(135deg, #5d1c3a 0%, #441229 100%);
+  border-radius: 18px;
+  padding: 0.55rem 1.25rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  box-shadow: 0 10px 28px rgba(62, 15, 37, 0.25);
+  border: 1px solid rgba(255, 255, 255, 0.14);
 }
 
 .brand-link {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.7rem;
   text-decoration: none;
+  flex-shrink: 0;
 }
 
-.brand-logo-icon {
-  width: 42px;
-  height: 42px;
-  border-radius: 12px;
-  background: linear-gradient(135deg, #ff2d95, #ff6b9d);
+.brand-logo-badge {
+  width: 38px;
+  height: 38px;
+  border-radius: 11px;
+  background: #faf3f6;
+  color: #561935;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
-  font-size: 1.25rem;
-  box-shadow: 0 4px 18px rgba(255, 45, 149, 0.45);
+  font-size: 1.15rem;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.18);
 }
 
 .brand-title-wrap {
@@ -231,134 +239,134 @@ export default {
 }
 
 .brand-name {
-  font-size: 1.35rem;
-  font-weight: 800;
-  color: #fff;
-  letter-spacing: 0.5px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  color: #fff8fb;
   line-height: 1.2;
 }
 
 .brand-subtitle {
-  font-size: 0.72rem;
-  color: #ff6b9d;
-  font-weight: 600;
-  letter-spacing: 1px;
+  font-size: 0.65rem;
+  color: #f8b4cf;
+  font-weight: 700;
+  letter-spacing: 1.5px;
 }
 
 .nav-menu {
   display: flex;
   align-items: center;
-  gap: 1.5rem;
+  gap: 0.6rem;
 }
 
 .nav-link {
-  color: #e5d6e1;
+  color: #f5dae5;
   text-decoration: none;
-  font-weight: 500;
-  font-size: 0.93rem;
-  padding: 0.4rem 0.65rem;
-  border-radius: 8px;
-  transition: all 0.25s;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.42rem 0.85rem;
+  border-radius: 11px;
+  transition: all 0.22s ease;
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
+  gap: 0.4rem;
+  white-space: nowrap;
 }
 
 .nav-link i {
-  font-size: 0.85rem;
-  color: #ff6b9d;
-  transition: transform 0.2s;
+  font-size: 0.82rem;
+  opacity: 0.85;
 }
 
 .nav-link:hover,
 .nav-link.active,
 .nav-link.router-link-exact-active {
-  color: #ff6b9d;
-  background: rgba(255, 45, 149, 0.08);
+  color: #350e20;
+  background: #faf3f6;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
-.header-actions {
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
+/* باکس مستطیلی جداشده در کنار نوار (سبک مرجع) */
+.header-detached-action {
+  flex-shrink: 0;
 }
 
-.action-btn {
+.detached-login-box {
+  height: 52px;
+  padding: 0 1.25rem;
+  background: linear-gradient(135deg, #5d1c3a 0%, #441229 100%);
+  color: #fff8fb;
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  box-shadow: 0 10px 26px rgba(62, 15, 37, 0.25);
   display: inline-flex;
   align-items: center;
-  gap: 0.45rem;
-  padding: 0.55rem 1.25rem;
-  border-radius: 10px;
-  font-size: 0.88rem;
-  font-weight: 700;
+  justify-content: center;
+  gap: 0.5rem;
   text-decoration: none;
-  transition: all 0.3s;
+  font-weight: 700;
+  font-size: 0.88rem;
+  transition: all 0.22s ease;
 }
 
-.action-outline {
-  border: 1px solid rgba(255, 45, 149, 0.45);
-  color: #f0e6ee;
-  background: rgba(255, 45, 149, 0.06);
-}
-
-.action-outline:hover {
-  background: rgba(255, 45, 149, 0.2);
-  border-color: #ff2d95;
-  color: #fff;
-  transform: translateY(-1px);
-}
-
-.action-primary {
-  background: linear-gradient(135deg, #ff2d95, #ff6b9d);
-  color: #fff;
-  box-shadow: 0 4px 18px rgba(255, 45, 149, 0.35);
-}
-
-.action-primary:hover {
+.detached-login-box:hover {
+  background: linear-gradient(135deg, #d84782, #b8326a);
   transform: translateY(-2px);
-  box-shadow: 0 6px 25px rgba(255, 45, 149, 0.5);
+  color: #ffffff;
 }
 
 .hamburger-btn {
   display: none;
-  background: rgba(255, 255, 255, 0.07);
-  border: 1px solid rgba(255, 45, 149, 0.3);
+  background: rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.2);
   color: #fff;
-  width: 40px;
-  height: 40px;
+  width: 38px;
+  height: 38px;
   border-radius: 10px;
   cursor: pointer;
-  font-size: 1.1rem;
-}
-
-.w-full {
-  width: 100% !important;
+  font-size: 1.05rem;
+  align-items: center;
   justify-content: center;
 }
 
-@media (max-width: 900px) {
+.mobile-login-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  width: 100%;
+  padding: 0.75rem;
+  border-radius: 12px;
+  background: #faf3f6;
+  color: #350e20;
+  font-weight: 800;
+  text-decoration: none;
+}
+
+@media (max-width: 960px) {
   .hamburger-btn {
     display: flex;
-    align-items: center;
-    justify-content: center;
+  }
+
+  .header-detached-action {
+    display: none;
   }
 
   .nav-menu {
     position: fixed;
-    top: 65px;
-    left: 0;
-    right: 0;
-    background: rgba(8, 6, 20, 0.98);
-    backdrop-filter: blur(20px);
+    top: 76px;
+    left: 1rem;
+    right: 1rem;
+    background: linear-gradient(145deg, #561935, #3d0e24);
+    border-radius: 20px;
     flex-direction: column;
-    padding: 1.5rem 20px;
-    gap: 0.75rem;
-    border-bottom: 1px solid rgba(255, 45, 149, 0.2);
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8);
-    transform: translateY(-120%);
+    padding: 1.1rem;
+    gap: 0.45rem;
+    border: 1px solid rgba(255, 255, 255, 0.14);
+    box-shadow: 0 18px 40px rgba(45, 9, 26, 0.38);
+    transform: translateY(-20px);
     opacity: 0;
     pointer-events: none;
-    transition: all 0.35s ease;
+    transition: all 0.25s ease;
   }
 
   .nav-menu.active {
@@ -369,20 +377,15 @@ export default {
 
   .nav-link {
     width: 100%;
-    padding: 0.75rem 1rem;
-    font-size: 1rem;
-    border-radius: 10px;
+    padding: 0.7rem 1rem;
+    font-size: 0.95rem;
   }
 
   .mobile-nav-actions {
     width: 100%;
-    margin-top: 1rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-  }
-
-  .header-actions .action-btn {
-    display: none;
+    margin-top: 0.5rem;
+    padding-top: 0.6rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.15);
   }
 }
 </style>

@@ -150,25 +150,32 @@ export default {
   margin-bottom: 3rem;
 }
 .nav-public-link {
-  color: #ff85c0 !important;
-  font-weight: 600 !important;
+  background: rgba(255, 255, 255, 0.1) !important;
+  color: #ffe3ef !important;
+  font-weight: 700 !important;
 }
 .nav-public-link:hover {
-  color: #ff2d95 !important;
+  background: #faf3f6 !important;
+  color: #350e20 !important;
 }
 .user-pill {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid rgba(255, 45, 149, 0.25);
-  padding: 0.3rem 0.75rem;
-  border-radius: 20px;
-  font-size: 0.8rem;
-  color: #ff6b9d;
+  background: #faf3f6;
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  padding: 0.36rem 0.85rem;
+  border-radius: 10px;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: #350e20;
   display: inline-flex;
   align-items: center;
-  gap: 0.4rem;
+  gap: 0.45rem;
+}
+.user-pill i {
+  color: #d84782;
 }
 .user-pill small {
-  color: #d1c4ce;
+  color: #7a5163;
+  font-weight: 600;
 }
 @media (max-width: 768px) {
   .app-main-container {

@@ -450,21 +450,22 @@ export default {
 
 .view-mode-toggle {
   display: inline-flex;
-  background: rgba(22, 16, 28, 0.85);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 3px;
-  gap: 3px;
+  background: var(--card-cream);
+  border: 1.5px solid #dfc4d0;
+  border-radius: 14px;
+  padding: 4px;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(62, 15, 37, 0.08);
 }
 
 .mode-btn {
   background: transparent;
   border: none;
   color: var(--text-muted);
-  padding: 0.5rem 0.85rem;
-  border-radius: 8px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -474,13 +475,13 @@ export default {
 }
 
 .mode-btn:hover {
-  color: var(--text-primary);
+  color: var(--rose-deep);
 }
 
 .mode-btn.active {
-  background: linear-gradient(135deg, var(--rose-gold), var(--rose-gold-dark));
+  background: linear-gradient(135deg, #5b1c38, #411027);
   color: #fff;
-  box-shadow: 0 2px 10px rgba(217, 107, 138, 0.3);
+  box-shadow: 0 4px 12px rgba(86, 25, 53, 0.25);
 }
 
 /* فیلتر کارت */
@@ -491,21 +492,21 @@ export default {
 
 .category-tabs {
   display: flex;
-  gap: 0.5rem;
+  gap: 0.55rem;
   flex-wrap: wrap;
   margin-top: 1.25rem;
   padding-top: 1rem;
-  border-top: 1px solid var(--border-subtle);
+  border-top: 1px solid #ead4de;
 }
 
 .cat-tab {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
+  background: #ffffff;
+  border: 1.5px solid #dfc4d0;
+  color: var(--ink-primary);
   padding: 0.45rem 1rem;
   border-radius: var(--radius-pill);
   font-size: 0.84rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -515,16 +516,16 @@ export default {
 }
 
 .cat-tab:hover {
-  background: rgba(217, 107, 138, 0.1);
-  color: var(--rose-gold-light);
-  border-color: rgba(217, 107, 138, 0.3);
+  background: var(--rose-soft);
+  color: var(--rose-deep);
+  border-color: var(--rose-deep);
 }
 
 .cat-tab.active {
-  background: rgba(217, 107, 138, 0.2);
-  color: #fff;
-  border-color: var(--rose-gold);
-  box-shadow: 0 2px 12px rgba(217, 107, 138, 0.25);
+  background: linear-gradient(135deg, #5b1c38, #411027);
+  color: #ffffff;
+  border-color: #5b1c38;
+  box-shadow: 0 4px 14px rgba(86, 25, 53, 0.25);
 }
 
 /* ========================================================
@@ -538,14 +539,14 @@ export default {
 }
 
 .service-item-box {
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-lg);
+  background: var(--card-cream);
+  border: 1.5px solid #e7cfd9;
+  border-radius: 22px;
   padding: 1.5rem;
   display: flex;
   flex-direction: column;
   transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-card);
   position: relative;
   overflow: hidden;
 }
@@ -556,15 +557,14 @@ export default {
   top: 0;
   right: 0;
   left: 0;
-  height: 3px;
-  background: linear-gradient(90deg, var(--rose-gold), var(--champagne));
-  opacity: 0.85;
+  height: 5px;
+  background: linear-gradient(90deg, #5b1c38, #d84782);
 }
 
 .service-item-box:hover {
   transform: translateY(-4px);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 0 1px rgba(217, 107, 138, 0.25);
-  border-color: rgba(217, 107, 138, 0.3);
+  box-shadow: var(--shadow-elevated);
+  border-color: var(--rose-accent);
 }
 
 .box-top-row {
@@ -578,19 +578,18 @@ export default {
   display: inline-flex;
   align-items: center;
   gap: 0.45rem;
-  background: rgba(217, 107, 138, 0.12);
-  color: var(--rose-gold-light);
-  border: 1px solid rgba(217, 107, 138, 0.25);
-  padding: 0.3rem 0.75rem;
+  background: #561935;
+  color: #ffffff;
+  padding: 0.3rem 0.85rem;
   border-radius: var(--radius-pill);
   font-size: 0.78rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .box-id-badge {
   font-size: 0.75rem;
-  color: var(--text-faint);
-  font-weight: 600;
+  color: var(--text-muted);
+  font-weight: 700;
 }
 
 .box-main-content {
@@ -599,15 +598,15 @@ export default {
 }
 
 .service-box-title {
-  font-size: 1.22rem;
+  font-size: 1.2rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: var(--ink-primary);
   margin-bottom: 0.35rem;
   line-height: 1.4;
 }
 
 .service-box-subtitle {
-  color: var(--text-muted);
+  color: var(--ink-muted);
   font-size: 0.85rem;
   line-height: 1.5;
 }
@@ -624,19 +623,20 @@ export default {
   align-items: center;
   gap: 0.35rem;
   font-size: 0.78rem;
+  font-weight: 600;
   padding: 0.28rem 0.65rem;
-  border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.04);
-  color: var(--text-secondary);
-  border: 1px solid var(--border-subtle);
+  border-radius: 9px;
+  background: #ffffff;
+  color: var(--ink-secondary);
+  border: 1px solid #dfc4d0;
 }
 
 .duration-chip i {
-  color: var(--champagne-light);
+  color: #b45309;
 }
 
 .quality-chip i {
-  color: var(--rose-gold-light);
+  color: #d84782;
 }
 
 .box-price-row {
@@ -644,21 +644,22 @@ export default {
   justify-content: space-between;
   align-items: baseline;
   padding: 0.85rem 1rem;
-  background: rgba(14, 10, 18, 0.65);
-  border-radius: var(--radius-md);
-  border: 1px solid var(--border-subtle);
+  background: #f0e0e7;
+  border-radius: 14px;
+  border: 1px solid #dfc4d0;
   margin-bottom: 1.25rem;
 }
 
 .price-title {
   font-size: 0.84rem;
-  color: var(--text-muted);
+  font-weight: 600;
+  color: var(--ink-secondary);
 }
 
 .price-value {
   font-size: 1.28rem;
-  font-weight: 800;
-  color: var(--champagne-light);
+  font-weight: 900;
+  color: #561935;
 }
 
 .price-value small {

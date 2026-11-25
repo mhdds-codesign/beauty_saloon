@@ -476,21 +476,22 @@ export default {
 
 .view-mode-toggle {
   display: inline-flex;
-  background: rgba(22, 16, 28, 0.85);
-  border: 1px solid var(--border-subtle);
-  border-radius: var(--radius-md);
-  padding: 3px;
-  gap: 3px;
+  background: var(--card-cream);
+  border: 1.5px solid #dfc4d0;
+  border-radius: 14px;
+  padding: 4px;
+  gap: 4px;
+  box-shadow: 0 4px 12px rgba(62, 15, 37, 0.08);
 }
 
 .mode-btn {
   background: transparent;
   border: none;
   color: var(--text-muted);
-  padding: 0.5rem 0.85rem;
-  border-radius: 8px;
+  padding: 0.45rem 0.9rem;
+  border-radius: 10px;
   font-size: 0.85rem;
-  font-weight: 600;
+  font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -500,13 +501,13 @@ export default {
 }
 
 .mode-btn:hover {
-  color: var(--text-primary);
+  color: var(--rose-deep);
 }
 
 .mode-btn.active {
-  background: linear-gradient(135deg, var(--rose-gold), var(--rose-gold-dark));
+  background: linear-gradient(135deg, #5b1c38, #411027);
   color: #fff;
-  box-shadow: 0 2px 10px rgba(217, 107, 138, 0.3);
+  box-shadow: 0 4px 12px rgba(86, 25, 53, 0.25);
 }
 
 /* KPI Summary Bar */
@@ -522,16 +523,18 @@ export default {
   align-items: center;
   gap: 0.55rem;
   padding: 0.7rem 1.25rem;
-  border-radius: var(--radius-md);
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  border-radius: 14px;
+  background: var(--card-cream);
+  border: 1.5px solid #e7cfd9;
   font-size: 0.9rem;
-  color: var(--text-secondary);
+  font-weight: 600;
+  color: var(--ink-primary);
+  box-shadow: 0 4px 14px rgba(62, 15, 37, 0.08);
 }
 
 .kpi-pill strong {
   font-size: 1.2rem;
-  color: var(--text-primary);
+  color: var(--rose-deep);
   margin-right: 0.3rem;
 }
 
@@ -544,45 +547,43 @@ export default {
 
 .dot-green {
   background: var(--status-free);
-  box-shadow: 0 0 8px rgba(16, 185, 129, 0.6);
 }
 
 .dot-red {
   background: var(--status-busy);
-  box-shadow: 0 0 8px rgba(244, 63, 94, 0.6);
 }
 
 .kpi-free {
-  border-color: rgba(16, 185, 129, 0.3);
-  background: rgba(16, 185, 129, 0.08);
+  border-color: rgba(5, 150, 105, 0.4);
+  background: rgba(16, 185, 129, 0.1);
 }
 .kpi-free strong {
-  color: var(--status-free);
+  color: #065f46;
 }
 
 .kpi-busy {
-  border-color: rgba(244, 63, 94, 0.3);
-  background: rgba(244, 63, 94, 0.08);
+  border-color: rgba(220, 38, 38, 0.4);
+  background: rgba(239, 68, 68, 0.1);
 }
 .kpi-busy strong {
-  color: #fb7185;
+  color: #991b1b;
 }
 
 /* تب‌های فیلتر لاین‌ها */
 .filter-card {
   margin-top: 0 !important;
   margin-bottom: 2rem;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  background: var(--card-cream);
+  border: 1.5px solid #e7cfd9;
 }
 
 .filter-header-label {
   display: flex;
   align-items: center;
   gap: 0.5rem;
-  font-weight: 700;
+  font-weight: 800;
   font-size: 0.95rem;
-  color: var(--text-primary);
+  color: var(--ink-primary);
   margin-bottom: 0.85rem;
 }
 
@@ -593,13 +594,13 @@ export default {
 }
 
 .line-tab-btn {
-  background: rgba(255, 255, 255, 0.04);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  padding: 0.55rem 1.15rem;
+  background: #ffffff;
+  border: 1.5px solid #dfc4d0;
+  color: var(--ink-primary);
+  padding: 0.52rem 1.1rem;
   border-radius: var(--radius-pill);
-  font-size: 0.88rem;
-  font-weight: 600;
+  font-size: 0.86rem;
+  font-weight: 700;
   cursor: pointer;
   display: inline-flex;
   align-items: center;
@@ -609,28 +610,30 @@ export default {
 }
 
 .line-tab-btn .tab-badge {
-  background: rgba(255, 255, 255, 0.1);
-  padding: 0.15rem 0.45rem;
+  background: #f0e0e7;
+  padding: 0.12rem 0.5rem;
   border-radius: 12px;
   font-size: 0.72rem;
-  color: #fff;
+  color: #561935;
+  font-weight: 800;
 }
 
 .line-tab-btn:hover {
-  background: rgba(217, 107, 138, 0.1);
-  color: var(--rose-gold-light);
-  border-color: rgba(217, 107, 138, 0.3);
+  background: var(--rose-soft);
+  color: var(--rose-deep);
+  border-color: var(--rose-deep);
 }
 
 .line-tab-btn.active {
-  background: rgba(217, 107, 138, 0.2);
-  color: #fff;
-  border-color: var(--rose-gold);
-  box-shadow: 0 4px 14px rgba(217, 107, 138, 0.28);
+  background: linear-gradient(135deg, #5b1c38, #411027);
+  color: #ffffff;
+  border-color: #5b1c38;
+  box-shadow: 0 4px 14px rgba(86, 25, 53, 0.25);
 }
 
 .line-tab-btn.active .tab-badge {
-  background: var(--rose-gold);
+  background: rgba(255, 255, 255, 0.2);
+  color: #ffffff;
 }
 
 /* ========================================================
@@ -639,20 +642,23 @@ export default {
 .line-tables-container {
   display: flex;
   flex-direction: column;
-  gap: 2.5rem;
+  gap: 2.2rem;
 }
 
 .line-schedule-card {
   margin: 0 !important;
-  background: var(--bg-surface);
-  border: 1px solid var(--border-subtle);
+  background: var(--card-cream);
+  border: 1.5px solid #e7cfd9;
   box-shadow: var(--shadow-card);
 }
 
 .line-card-header {
-  padding: 1.1rem 1.75rem;
-  background: var(--bg-card-header);
-  border-bottom: 1px solid var(--border-subtle);
+  padding: 1.1rem 1.6rem;
+  background: linear-gradient(135deg, #5b1c38, #411027);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.14);
+}
+.line-card-header::before {
+  display: none;
 }
 
 .line-header-left {
@@ -665,26 +671,26 @@ export default {
   width: 44px;
   height: 44px;
   border-radius: 12px;
-  background: linear-gradient(135deg, var(--rose-gold), var(--rose-gold-dark));
+  background: #faf3f6;
   display: flex;
   align-items: center;
   justify-content: center;
-  color: #fff;
+  color: #561935;
   font-size: 1.25rem;
-  box-shadow: 0 4px 14px rgba(217, 107, 138, 0.3);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .line-header-title {
-  font-size: 1.25rem;
+  font-size: 1.22rem;
   font-weight: 800;
-  color: var(--text-primary);
+  color: #ffffff;
   margin: 0;
   line-height: 1.3;
 }
 
 .line-header-sub {
-  color: var(--text-muted);
-  font-size: 0.84rem;
+  color: #f8dce8;
+  font-size: 0.82rem;
 }
 
 .line-header-stats {
@@ -700,13 +706,14 @@ export default {
   border-collapse: separate;
   border-spacing: 0;
   min-width: 960px;
+  background: #ffffff;
 }
 
 .schedule-matrix-table th,
 .schedule-matrix-table td {
-  border-bottom: 1px solid var(--border-subtle);
-  border-left: 1px solid var(--border-subtle);
-  padding: 0.9rem 0.75rem;
+  border-bottom: 1px solid #ecd9e2;
+  border-left: 1px solid #ecd9e2;
+  padding: 0.85rem 0.7rem;
   text-align: center;
   vertical-align: middle;
 }
@@ -718,35 +725,36 @@ export default {
 
 .time-col-header {
   width: 160px;
-  background: rgba(28, 20, 36, 0.95) !important;
-  color: var(--champagne-light) !important;
+  background: #f0dfe6 !important;
+  color: #561935 !important;
   font-size: 0.92rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .day-col-header {
-  background: rgba(32, 23, 40, 0.8) !important;
-  color: var(--rose-gold-light) !important;
+  background: #f7ecf0 !important;
+  color: #561935 !important;
   font-size: 0.95rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .time-col-cell {
-  background: rgba(20, 15, 26, 0.8);
+  background: #fbf5f8;
   font-size: 0.9rem;
-  color: var(--text-primary);
+  font-weight: 700;
+  color: #350e20;
   white-space: nowrap;
 }
 
 .slot-matrix-cell {
-  background: rgba(18, 13, 23, 0.4);
-  padding: 0.65rem !important;
+  background: #ffffff;
+  padding: 0.6rem !important;
   min-width: 140px;
 }
 
 /* کارت اسلات درون سلول جدول */
 .matrix-slot-badge {
-  border-radius: 10px;
+  border-radius: 12px;
   padding: 0.6rem 0.65rem;
   display: flex;
   flex-direction: column;
@@ -759,26 +767,26 @@ export default {
   transform: translateY(-1px);
 }
 
-/* اسلات آزاد: سبز زمردی لوکس */
+/* اسلات آزاد: سبز */
 .cell-free {
   background: rgba(16, 185, 129, 0.12);
-  border: 1px solid rgba(16, 185, 129, 0.4);
+  border: 1.5px solid rgba(5, 150, 105, 0.4);
 }
 .cell-free:hover {
   background: rgba(16, 185, 129, 0.18);
-  border-color: rgba(16, 185, 129, 0.6);
-  box-shadow: 0 4px 14px rgba(16, 185, 129, 0.2);
+  border-color: rgba(5, 150, 105, 0.65);
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.2);
 }
 
-/* اسلات رزرو شده: قرمز / زرشکی لوکس */
+/* اسلات رزرو شده: قرمز */
 .cell-busy {
-  background: rgba(244, 63, 94, 0.12);
-  border: 1px solid rgba(244, 63, 94, 0.4);
+  background: rgba(239, 68, 68, 0.1);
+  border: 1.5px solid rgba(220, 38, 38, 0.4);
 }
 .cell-busy:hover {
-  background: rgba(244, 63, 94, 0.18);
-  border-color: rgba(244, 63, 94, 0.6);
-  box-shadow: 0 4px 14px rgba(244, 63, 94, 0.2);
+  background: rgba(239, 68, 68, 0.16);
+  border-color: rgba(220, 38, 38, 0.65);
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.18);
 }
 
 .matrix-slot-top {
@@ -786,7 +794,7 @@ export default {
   justify-content: space-between;
   align-items: center;
   font-size: 0.78rem;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 .matrix-status-title {
@@ -796,22 +804,22 @@ export default {
 }
 
 .cell-free .matrix-status-title {
-  color: var(--status-free);
+  color: #065f46;
 }
 
 .cell-busy .matrix-status-title {
-  color: #fb7185;
+  color: #991b1b;
 }
 
 .matrix-slot-id {
   font-size: 0.7rem;
-  color: var(--text-faint);
+  color: var(--ink-muted);
 }
 
 .matrix-reserve-btn {
   background: linear-gradient(135deg, #059669, #10b981);
   color: #fff;
-  border-radius: 6px;
+  border-radius: 8px;
   font-size: 0.76rem;
   font-weight: 700;
   padding: 0.35rem 0.5rem;
@@ -821,7 +829,7 @@ export default {
   justify-content: center;
   gap: 0.3rem;
   transition: all 0.2s;
-  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.3);
+  box-shadow: 0 2px 8px rgba(16, 185, 129, 0.25);
 }
 
 .matrix-reserve-btn:hover {
@@ -830,14 +838,14 @@ export default {
 }
 
 .matrix-locked-label {
-  font-size: 0.74rem;
-  color: #fb7185;
-  padding: 0.35rem 0;
+  font-size: 0.75rem;
+  color: #991b1b;
+  padding: 0.3rem 0;
   display: inline-flex;
   align-items: center;
   justify-content: center;
   gap: 0.3rem;
-  font-weight: 600;
+  font-weight: 700;
 }
 
 .matrix-admin-tools {
@@ -846,14 +854,14 @@ export default {
   gap: 0.35rem;
   margin-top: 0.15rem;
   padding-top: 0.35rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  border-top: 1px solid rgba(86, 25, 53, 0.14);
 }
 
 .admin-tool-btn {
-  background: rgba(255, 255, 255, 0.08);
-  border: 1px solid var(--border-subtle);
-  color: var(--text-secondary);
-  border-radius: 4px;
+  background: #ffffff;
+  border: 1px solid #dfc4d0;
+  color: #561935;
+  border-radius: 6px;
   width: 24px;
   height: 24px;
   display: inline-flex;

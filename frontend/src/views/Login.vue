@@ -88,14 +88,14 @@ export default {
 
 <style scoped>
 .register-link {
-  color: #ff6b9d;
+  color: #561935;
   font-size: 0.9rem;
-  font-weight: 600;
+  font-weight: 700;
   text-decoration: none;
   transition: color 0.2s;
 }
 .register-link:hover {
-  color: #ff2d95;
+  color: #d84782;
   text-decoration: underline;
 }
 </style>

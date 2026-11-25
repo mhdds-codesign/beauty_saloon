@@ -73,14 +73,13 @@ export default {
   align-items: center;
   gap: 0.85rem;
   padding: 0.85rem 1.1rem;
-  border-radius: 12px;
-  background: rgba(22, 17, 34, 0.96);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 15px rgba(255, 45, 149, 0.15);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  color: #f5e6ee;
+  border-radius: 14px;
+  background: #faf3f6;
+  box-shadow: 0 12px 30px rgba(51, 13, 30, 0.22);
+  border: 1.5px solid #dfc4d0;
+  color: #330d1e;
   font-size: 0.92rem;
+  font-weight: 600;
   line-height: 1.5;
   cursor: pointer;
   transition: all 0.25s ease;
@@ -89,7 +88,7 @@ export default {
 
 .toast-item:hover {
   transform: translateY(-2px);
-  box-shadow: 0 14px 35px rgba(0, 0, 0, 0.6), 0 0 20px rgba(255, 45, 149, 0.25);
+  box-shadow: 0 16px 35px rgba(51, 13, 30, 0.28);
 }
 
 .toast-icon {
@@ -108,7 +107,7 @@ export default {
 .toast-close {
   background: transparent;
   border: none;
-  color: #bfa8b8;
+  color: #7a5163;
   font-size: 1.3rem;
   line-height: 1;
   padding: 0 0.25rem;
@@ -118,43 +117,39 @@ export default {
 }
 
 .toast-close:hover {
-  color: #fff;
+  color: #330d1e;
 }
 
-/* نوع موفقیت (سبز زمردی نئونی) */
+/* نوع موفقیت (سبز) */
 .toast-success {
-  border-color: rgba(16, 185, 129, 0.55);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(16, 185, 129, 0.25);
+  border-color: #10b981;
 }
 .toast-success .toast-icon {
-  color: #10b981;
+  color: #059669;
 }
 
-/* نوع خطا (قرمز رز نئونی) */
+/* نوع خطا (قرمز) */
 .toast-error {
-  border-color: rgba(239, 68, 68, 0.55);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(239, 68, 68, 0.25);
+  border-color: #ef4444;
 }
 .toast-error .toast-icon {
-  color: #ef4444;
+  color: #dc2626;
 }
 
-/* نوع هشدار (خردلی / طلایی) */
+/* نوع هشدار (خردلی) */
 .toast-warning {
-  border-color: rgba(217, 119, 6, 0.55);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(217, 119, 6, 0.25);
+  border-color: #d97706;
 }
 .toast-warning .toast-icon {
-  color: #f59e0b;
+  color: #b45309;
 }
 
 /* نوع اطلاع‌رسانی (صورتی رز) */
 .toast-info {
-  border-color: rgba(255, 45, 149, 0.55);
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5), 0 0 20px rgba(255, 45, 149, 0.25);
+  border-color: #d84782;
 }
 .toast-info .toast-icon {
-  color: #ff2d95;
+  color: #561935;
 }
 
 /* ترنزیشن اسلاید و فید */

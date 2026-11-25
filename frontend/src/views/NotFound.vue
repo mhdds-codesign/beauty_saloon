@@ -82,12 +82,12 @@ export default {
 .not-found-title {
   font-size: 1.6rem;
   font-weight: 800;
-  color: #fff;
+  color: var(--ink-primary);
   margin-bottom: 1rem;
 }
 
 .not-found-desc {
-  color: #cfbecc;
+  color: var(--ink-muted);
   font-size: 0.98rem;
   line-height: 1.7;
   margin-bottom: 2rem;
