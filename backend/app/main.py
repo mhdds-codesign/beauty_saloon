@@ -1,15 +1,20 @@
 import os
 import sys
 import hashlib
+import mimetypes
 from fastapi import FastAPI, Depends, HTTPException, status
 from fastapi.openapi.docs import get_swagger_ui_html
 from fastapi.security import HTTPBasic, HTTPBasicCredentials
 from fastapi.responses import RedirectResponse, FileResponse
 from fastapi.staticfiles import StaticFiles
+from starlette.datastructures import Headers
+from starlette.exceptions import HTTPException as StarletteHTTPException
 from starlette.middleware.sessions import SessionMiddleware
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
 from sqlalchemy import text
+
+mimetypes.add_type("image/webp", ".webp")
 
 from app.database import engine, Base, get_db, SessionLocal
 from app.models import Admin
@@ -92,14 +97,51 @@ app.add_middleware(
 )
 
 # ======================== Static & Frontend Mounting ========================
+class WebPStaticFiles(StaticFiles):
+    """Automatically serve .webp files for .jpg/.jpeg/.png requests when supported."""
+
+    _CONVERTIBLE_EXTS = (".jpg", ".jpeg", ".png")
+
+    @staticmethod
+    def _ensure_vary_accept(response):
+        vary = response.headers.get("vary")
+        if not vary:
+            response.headers["Vary"] = "Accept"
+        elif "accept" not in {v.strip().lower() for v in vary.split(",")}:
+            response.headers["Vary"] = f"{vary}, Accept"
+
+    async def get_response(self, path: str, scope):
+        root, ext = os.path.splitext(path)
+        ext_lower = ext.lower()
+        is_convertible = ext_lower in self._CONVERTIBLE_EXTS
+
+        if is_convertible:
+            accept = Headers(scope=scope).get("accept", "").lower()
+            if "image/webp" in accept:
+                webp_path = f"{root}.webp"
+                try:
+                    response = await super().get_response(webp_path, scope)
+                    self._ensure_vary_accept(response)
+                    return response
+                except StarletteHTTPException as exc:
+                    if exc.status_code != 404:
+                        raise
+
+        response = await super().get_response(path, scope)
+        if is_convertible or ext_lower == ".webp":
+            self._ensure_vary_accept(response)
+        return response
+
+
 if os.path.isdir(STATIC_DIR):
-    app.mount("/static", StaticFiles(directory=STATIC_DIR), name="static")
+    app.mount("/static", WebPStaticFiles(directory=STATIC_DIR), name="static")
 
 if FRONTEND_DIST:
     for folder in ("assets", "images", "fonts"):
         sub_dir = os.path.join(FRONTEND_DIST, folder)
         if os.path.isdir(sub_dir):
-            app.mount(f"/{folder}", StaticFiles(directory=sub_dir), name=folder)
+            static_cls = WebPStaticFiles if folder in ("images", "assets") else StaticFiles
+            app.mount(f"/{folder}", static_cls(directory=sub_dir), name=folder)
 
 # ======================== Include Routers ========================
 app.include_router(auth_router)

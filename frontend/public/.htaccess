@@ -1,0 +1,29 @@
+# ============================================================
+# Automatic WebP Image Serving (without modifying HTML code)
+# ============================================================
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+
+  # Check if the browser supports WebP images
+  RewriteCond %{HTTP_ACCEPT} image/webp
+
+  # Check if the requested file is JPG, JPEG, or PNG and a .webp version exists
+  RewriteCond %{REQUEST_FILENAME} ^(.+)\.(jpe?g|png)$ [NC]
+  RewriteCond %1.webp -f
+
+  # Internally rewrite the request to return the .webp image
+  RewriteRule ^(.+)\.(jpe?g|png)$ $1.webp [T=image/webp,E=REQUEST_image:1,NC,L]
+</IfModule>
+
+<IfModule mod_headers.c>
+  # Tell browsers, proxies, and CDNs that image responses vary by Accept header
+  <FilesMatch "\.(?i:jpe?g|png|webp)$">
+    Header merge Vary Accept
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_mime.c>
+  # Ensure Apache serves .webp files with the correct MIME type
+  AddType image/webp .webp
+</IfModule>
